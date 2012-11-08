@@ -14,6 +14,6 @@ Sentence = Rjb::import('edu.stanford.nlp.ling.Sentence')
 sent = "Good afternoon Rajat Raina, how are you today?"
 
 Measure.time "NER", 10 do
-  puts classifier.testString( sent )
-  puts MaxentTagger.tagString( sent )
+  puts classifier.testStringInlineXML( sent )
+  # puts MaxentTagger.tagString( sent )
 end
