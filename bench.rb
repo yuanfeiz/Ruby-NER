@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rjb'
 require 'builder'
 
@@ -8,13 +9,55 @@ MAP = {
     '}' => '-RCB-',
 }
 
-def tokenize filepath
-    text = File.read(filepath).force_encoding('utf-8')
-    
-    tokenized_text = text.gsub(/[(){}\[\]\.\,\s":]|(\'s)/) {|m| m = MAP[m] || m; "\n#{m}\n" }
-        .gsub(/\n[\s]*\n/, "\n")
-    tokenized_text.gsub(/#{MAP['{']}\n(.*?)?\/(n.?)\n#{MAP['}']}/m) {|m| $1.split("\n").map { |e| "#{e}\t#{$2}" }.join("\n") }
-        .gsub(/^\S+$/)  {|m| "#{m}\tO"}
+class TextProcessor
+    def initialize(text)
+        @text = text || ""
+    end
+
+    def tokenize
+        tokenized_text = @text.gsub(/[(){}\[\]\.\,\s":]|(\'s)/) {|m| m = MAP[m] || m; "\n#{m}\n" }
+            .gsub(/\n[\s]*\n/, "\n")
+        tokenized_text.gsub(/#{MAP['{']}\n(.*?)?\/(n.?)\n#{MAP['}']}/m) {|m| $1.split("\n").map { |e| "#{e}\t#{$2}" }.join("\n") }
+            .gsub(/^\S+$/)  {|m| "#{m}\tO"}
+    end
+
+    # 从文件读取文本
+    def read_from_file(path)
+        @text = File.read(path).force_encoding('utf-8')
+    end
+
+    # 将结果保存到文件
+    def save_to_file(path)
+        File.open(path, "w") { |io| io.write(self.tokenize) }
+    end
+end
+
+class OutputBuilder
+    def intialize(offsets)
+        @offsets = offsets
+        @xml = nil
+    end
+
+    def to_xml
+        builder = Builder::XmlMarkup.new(indent: 2)
+        builder.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
+
+        @xml = builder.EntityExtraction do |entity_extraction|
+            entity_extraction.Entitie0s(count: @offsets.size) do |entities|
+                @offsets.each do |offset|
+                    entities.Entity(type: offset[0]) do |entity|
+                        entity.Text(offset[3])
+                        entity.Doc(offset[1])
+                        entity.Start(offset[2])
+                    end
+                end
+            end
+        end
+    end
+
+    def write_to_file(path)
+        File.open(path, "w") { |io| io.write(self.to_xml) }
+    end
 end
 
 def prepare
@@ -64,21 +107,7 @@ def process filepath
     res
 end
 
-def build_xml(offsets)
-    builder = Builder::XmlMarkup.new(indent: 2)
-    builder.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
-    xml = builder.EntityExtraction do |entity_extraction|
-        entity_extraction.Entities(count: offsets.size) do |entities|
-            offsets.each do |offset|
-                entities.Entity(type: offset[0]) do |entity|
-                    entity.Text(offset[3])
-                    entity.Doc(offset[1])
-                    entity.Start(offset[2])
-                end
-            end
-        end
-    end
-end
+
 
 print "Test file name:"
 # testfile_path = gets.chomp
@@ -88,7 +117,7 @@ res = process(testfile_path)
 
 print "Output file name:"
 # testfile_path = gets.chomp
-resultfile_path = "my_result.xml"
+resultfile_path = "my_result_#{Time.now.to_i}.xml"
 puts resultfile_path
 File.open(resultfile_path, 'w') do |file|
     file.write(build_xml(res))
