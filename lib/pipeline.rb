@@ -67,18 +67,28 @@ class NLPPipeline < Thor
     [res, postag_time]
   end
 
-  desc 'pipeline input_file', ''
-  def pipeline(input_file)
+  desc 'pipeline_line one_line_input_file', ''
+  def pipeline_line(input_file)
     res = normalize(input_file, keep_bracket: false)
     path = store_result(res)
     res, segment_time = segment(path)
     path = store_result(res)
     res, postag_time = postag(path)
     res.linerize!.to_crf_input!
+    path = store_result(res)
+    index_tbl = index_tag(input_file)
+    res = label(path, index_tbl)
 
     puts res
     puts "segment: #{segment_time}s"
     puts "postag: #{postag_time}s"
+  end
+
+  desc 'pipeline multi_line_input_file', ''
+  def pipeline(input_file)
+    str = File.readlines(input_file).map(&:chomp).join('')
+    path = store_result(str)
+    pipeline_line(path)
   end
 
   desc 'label input_file', 'label with IOB'
