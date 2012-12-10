@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
-require 'rubygems'
 require 'cocaine'
 require 'tempfile'
 require 'benchmark'
@@ -13,17 +12,21 @@ class NLPPipeline < Thor
   POSTAGGER_DIR = '/Users/stranbird/Documents/NLP/stanford-postagger-full-2012-11-11'
 
   desc 'normalize input_file', 'Normalize file'
-  def normalize(input_file, options = {})
+  method_options :verbose => :boolean
+  def normalize(input_file, params = {})
     doc = File.read(input_file)
     capture_tags_regexp = /{(.*?)\/(.*?)}/
 
-    doc.gsub(capture_tags_regexp) do
-      if options[:keep_bracket] then
+    res = doc.gsub(capture_tags_regexp) do
+      if params[:keep_bracket] then
         '{' + $1 + '}'
       else
         $1
       end
     end
+    puts res if options[:verbose]
+
+    res
   end
 
   desc 'segment input_file', ''
@@ -64,6 +67,20 @@ class NLPPipeline < Thor
     [res, postag_time]
   end
 
+  desc 'pipeline input_file', ''
+  def pipeline(input_file)
+    res = normalize(input_file, keep_bracket: true)
+    path = store_result(res)
+    res, segment_time = segment(path)
+    path = store_result(res)
+    res, postag_time = postag(path)
+    res.linerize!.to_crf_input!
+
+    puts res
+    puts "segment: #{segment_time}s"
+    puts "postag: #{postag_time}s"
+  end
+
 private
   def store_result(res)
     tmpfile = Tempfile.new('result')
@@ -75,14 +92,3 @@ private
 end
 
 NLPPipeline.start
-
-# res = normalize(ARGV[0], keep_bracket: true)
-# path = store_result(res)
-# res, segment_time = segment(path)
-# path = store_result(res)
-# res, postag_time = postag(path)
-# res.linerize!.to_crf_input!
-
-# puts res
-# puts "segment: #{segment_time}s"
-# puts "postag: #{postag_time}s"

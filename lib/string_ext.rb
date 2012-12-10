@@ -8,7 +8,7 @@ module NLP
   end
 
   def linerize!
-    self.gsub!(' ', "\n").gsub(/^#.*$/, '')
+    self.gsub!(' ', "\n")
   end
 
   def to_crf_input!
