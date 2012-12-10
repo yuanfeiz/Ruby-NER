@@ -14,6 +14,17 @@ module NLP
   def to_crf_input!
     self.gsub!('#', ' ')
   end
+
+  def to_cardinal
+    case self
+    when 'nr'
+      'PER'
+    when 'nt'
+      'ORG'
+    when 'ns'
+      'LOC'
+    end
+  end
 end
 
 class String

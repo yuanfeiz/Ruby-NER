@@ -69,7 +69,7 @@ class NLPPipeline < Thor
 
   desc 'pipeline input_file', ''
   def pipeline(input_file)
-    res = normalize(input_file, keep_bracket: true)
+    res = normalize(input_file, keep_bracket: false)
     path = store_result(res)
     res, segment_time = segment(path)
     path = store_result(res)
@@ -81,13 +81,58 @@ class NLPPipeline < Thor
     puts "postag: #{postag_time}s"
   end
 
-private
+  desc 'label input_file', 'label with IOB'
+  def label(input_file, index)
+    res = []
+    current_index = 0
+    current_token = index.shift
+    File.readlines(input_file).each do |line|
+      line.chomp!
+      word = line.split(' ').first
+      line_res = ''
+      l = ''
+      if (not current_token.nil?) and (current_index < (current_token[1] + current_token[2])) and (current_index >= current_token[1]) then
+        if current_index == current_token[1] then
+          l = 'B-' + current_token.last
+        else
+          l = 'I-' + current_token.last
+        end
+        current_token = index.shift if current_index + word.length == current_token[1] + current_token[2]
+      else
+        l = 'O'
+      end
+
+      res << (line + ' ' + l)
+      current_index += word.length
+    end
+
+    res.join("\n")
+  end
+
+  desc 'index_tag input_file', 'index tag of origin input file'
+  def index_tag(input_file)
+    res = []
+    str = File.read(input_file)
+    offset = 0
+    str.scan(/{(.*?)\/(n[tsr])}/) do |ne, type|
+      res << [ne, $~.offset(0)[0] - offset, ne.length, type.to_cardinal]
+      offset += 5
+    end
+
+    res
+  end
+
+# private
+  no_tasks do
+
   def store_result(res)
     tmpfile = Tempfile.new('result')
     tmpfile.write(res)
     tmpfile.close
 
     tmpfile.path
+  end
+
   end
 end
 
