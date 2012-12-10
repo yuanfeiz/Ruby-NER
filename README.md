@@ -1,7 +1,8 @@
 # Directory Tree:
 ```
-  NLP/
-    pipeline.rb
+  Ruby-NER/
+  	lib/
+	  pipeline.rb
     stanford-segmenter-2012-11-11/
       test.simp.utf8
       segment.sh
@@ -12,9 +13,9 @@
 
 # Usage
 ```
-  $ cd NLP
+  $ cd Ruby-NER
   $ bundle --without development
-  $ ruby pipeline.rb /path/to/input/file
+  $ ruby lib/pipeline.rb /path/to/input/file
 ```
 
 # Note
