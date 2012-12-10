@@ -1,7 +1,9 @@
-source :rubygems
-
-gem 'rjb'
+source 'http://ruby.taobao.org'
 
 group :development do
-    gem 'guard-ruby'    
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
 end
+
+gem 'cocaine'
+gem 'log4r'
