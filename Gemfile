@@ -6,4 +6,4 @@ group :development do
 end
 
 gem 'cocaine'
-gem 'log4r'
+gem 'thor'

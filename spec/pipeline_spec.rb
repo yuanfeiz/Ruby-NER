@@ -3,6 +3,8 @@ require 'spec_helper'
 
 describe "NLP" do
 
+  let(:app) { NLPPipeline.new }
+
   let(:input_file) { '/Users/stranbird/Documents/NLP/TrainingData.txt' }
   let(:normalized_text) { '用先进典型推动部队全面建设据{新华社}{北京}１２月３１日电（记者{罗玉文}）{中央军委}委员、总政治部主任{于永波}日前在会见全军和武警部队先进典型代表时强调，全军要认真贯彻落实{江泽民}主席最近的重要指示精神，形成学习邓小平理论的新高潮，把这一学习提高到十五大所达到的新水平，进一步加强军队的革命化、现代化、正规化建设。{于永波}等在同应邀参加中宣部召开的全国先进典型座谈会的军队代表{徐洪刚}、{韩素云}、{李国安}、{邹延龄}、{第四军医大学}学员二大队代表{李尔青}以及{武警部队国旗护卫队}代表{王建华}座谈时，称赞他们的先进事迹是中华民族传统美德和我党我军优良传统的完美结合，体现了我党我军全心全意为人民服务的宗旨，体现了与社会主义市场经济相适应的时代精神。{于永波}指出，我军是一支英雄模范辈出的军队，用先进典型教育部队是我军政治工作的优良传统。他说，要充分发挥先进典型的示范、激励、感召作用，在部队营造学习先进、奋发向上的良好风气。要把向英雄模范学习同做好部队的各项工作紧密结合起来，爱岗敬业，在各自的岗位上为军队和国防建设贡献聪明才智，按照{江主席}“五句话”的总要求，推动部队全面建设。总政副主任{周子玉}、{唐天标}、{袁守芳}等参加了会见。' }
   let(:normalized_text_without_bracket) { '用先进典型推动部队全面建设据新华社北京１２月３１日电（记者罗玉文）中央军委委员、总政治部主任于永波日前在会见全军和武警部队先进典型代表时强调，全军要认真贯彻落实江泽民主席最近的重要指示精神，形成学习邓小平理论的新高潮，把这一学习提高到十五大所达到的新水平，进一步加强军队的革命化、现代化、正规化建设。于永波等在同应邀参加中宣部召开的全国先进典型座谈会的军队代表徐洪刚、韩素云、李国安、邹延龄、第四军医大学学员二大队代表李尔青以及武警部队国旗护卫队代表王建华座谈时，称赞他们的先进事迹是中华民族传统美德和我党我军优良传统的完美结合，体现了我党我军全心全意为人民服务的宗旨，体现了与社会主义市场经济相适应的时代精神。于永波指出，我军是一支英雄模范辈出的军队，用先进典型教育部队是我军政治工作的优良传统。他说，要充分发挥先进典型的示范、激励、感召作用，在部队营造学习先进、奋发向上的良好风气。要把向英雄模范学习同做好部队的各项工作紧密结合起来，爱岗敬业，在各自的岗位上为军队和国防建设贡献聪明才智，按照江主席“五句话”的总要求，推动部队全面建设。总政副主任周子玉、唐天标、袁守芳等参加了会见。' }
@@ -74,29 +76,28 @@ describe "NLP" do
   end
 
   it "should produces normalize text" do
-    normalize(input_file, keep_bracket: true).should eql(normalized_text)
-    normalize(input_file, keep_bracket: false).should eql(normalized_text_without_bracket)
+    app.normalize(input_file, keep_bracket: true).should eql(normalized_text)
+    app.normalize(input_file, keep_bracket: false).should eql(normalized_text_without_bracket)
   end
 
   it "should segment correctly" do
-    # pending 'pass'
-    path = store_result(normalized_text)
-    segment(path)[0].should eql(segmented_text)
+    pending 'pass'
+    path = app.store_result(normalized_text)
+    app.segment(path)[0].should eql(segmented_text)
 
-    path = store_result(normalized_text_without_bracket)
-    segment(path)[0].should eql(segmented_text_without_bracket)
+    path = app.store_result(normalized_text_without_bracket)
+    app.segment(path)[0].should eql(segmented_text_without_bracket)
   end
 
   it "should postag correctly" do
     pending 'pass'
-    path = store_result(segmented_text)
-    postag(path)[0].should eql(postagged_text)
+    path = app.store_result(segmented_text)
+    app.postag(path)[0].should eql(postagged_text)
   end
 
   it "should linerize correctly" do
     postagged_text_01 = postagged_text
     postagged_text_01.linerize!.should eql(linerized_text)
-
     postagged_text_01.to_crf_input!.should eql(crf_input)
   end
 end

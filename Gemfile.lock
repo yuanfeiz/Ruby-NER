@@ -13,7 +13,6 @@ GEM
       guard (>= 1.1)
       rspec (~> 2.11)
     listen (0.6.0)
-    log4r (1.1.10)
     lumberjack (1.0.2)
     method_source (0.8.1)
     pry (0.9.10)
@@ -38,5 +37,5 @@ PLATFORMS
 DEPENDENCIES
   cocaine
   guard-rspec
-  log4r
   rb-fsevent
+  thor
