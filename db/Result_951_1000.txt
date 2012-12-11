@@ -17755,7 +17755,8 @@
 群众 NN O
 手 NN O
 中 LC O
-。 PU O本 DT O
+。 PU O
+本 DT O
 报 NN O
 记者 NN O
 赖仁琼 NR B-PER
@@ -35512,7 +35513,8 @@
 群众 NN O
 手 NN O
 中 LC O
-。 PU Oabc本 DT O
+。 PU O
+本 DT O
 报 NN O
 记者 NN O
 赖仁琼 NR B-PER

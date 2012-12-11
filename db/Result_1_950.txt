@@ -18750,7 +18750,8 @@
 项 M O
 世界 NN O
 纪录 NN O
-。 PU O新华社 NN B-ORG
+。 PU O
+新华社 NN B-ORG
 巴格达 NR B-LOC
 １月 NT O
 ３日 NT O
@@ -36837,7 +36838,8 @@
 １月 NT O
 ９日 NT O
 结束 VV O
-。 PU O新华社 NR B-ORG
+。 PU O
+新华社 NR B-ORG
 北京 NR B-LOC
 １月 NT O
 ５日 NT O
@@ -55673,7 +55675,8 @@
 、 PU O
 接待费 NN O
 开支 NN O
-。 PU O本 DT O
+。 PU O
+本 DT O
 报 NN O
 北京 NR B-LOC
 １月 NT O
@@ -74352,7 +74355,8 @@
 监督 VV O
 的 DEC O
 义务 NN O
-。 PU O农业部 NR B-ORG
+。 PU O
+农业部 NR B-ORG
 部长 NN O
 刘江 NR B-PER
 １９９７年 NT O
@@ -93084,7 +93088,8 @@
 。 PU O
 （ PU O
 文同 NR B-PER
-） PU O中央 NN B-ORG
+） PU O
+中央 NN B-ORG
 电视台 NN I-ORG
 军事部 NN I-ORG
 《 PU O
@@ -111390,7 +111395,8 @@
 替代 VV O
 的 DEC O
 作用 NN O
-。 PU O去年 NT O
+。 PU O
+去年 NT O
 三 CD O
 大 JJ O
 油田 NN O
@@ -130746,7 +130752,8 @@
 陈存松 NR B-PER
 摄影 NN O
 报道 NN O
-） PU O本报讯 NR O
+） PU O
+本报讯 NR O
 记者 NN O
 王政 NR B-PER
 报道 VV O
@@ -150563,7 +150570,8 @@
 参加 VV O
 了 AS O
 会见 NN O
-。 PU O新华社 NR B-ORG
+。 PU O
+新华社 NR B-ORG
 北京 NR B-LOC
 １月 NT O
 １３日 NT O
@@ -169935,7 +169943,8 @@
 是 VC O
 不利 VA O
 的 SP O
-。 PU O本 DT O
+。 PU O
+本 DT O
 报 NN O
 北京 NR B-LOC
 １月 NT O
@@ -188553,7 +188562,8 @@
 到 VV O
 安全 NN O
 地带 NN O
-。 PU O伊 NR O
+。 PU O
+伊 NR O
 重申 VV O
 应 VV O
 平衡 JJ O
@@ -208802,7 +208812,8 @@
 的 DEG O
 优秀 JJ O
 人才 NN O
-。 PU O叶钢 NR B-PER
+。 PU O
+叶钢 NR B-PER
 一 CD O
 张 M O
 正在 AD O
@@ -226880,7 +226891,8 @@
 积极 VA O
 的 DEC O
 作用 NN O
-。 PU O上海 NR B-LOC
+。 PU O
+上海 NR B-LOC
 百万 CD O
 家庭 NN O
 暂别 JJ O
@@ -244291,7 +244303,8 @@
 （ PU O
 陈光 NR B-PER
 摄 VV O
-） PU O西部 NN O
+） PU O
+西部 NN O
 ， PU O
 这 DT O
 片 M O
@@ -263553,7 +263566,8 @@
 警备区 NN I-ORG
 某部 NN O
 张海军 NR B-PER
-） PU O１９９７年 NT O
+） PU O
+１９９７年 NT O
 １１月 NT O
 ３０日 NT O
 晚 NN O
@@ -281098,7 +281112,8 @@
 。 PU O
 （ PU O
 赵劲 NR B-PER
-） PU O山西省 NR B-LOC
+） PU O
+山西省 NR B-LOC
 交口县 NR B-LOC
 县长 NN O
 李来福 NR B-PER
@@ -299224,7 +299239,8 @@
 的 DEG O
 合作 NN O
 关系 NN O
-。 PU O全 DT B-ORG
+。 PU O
+全 DT B-ORG
 国 NN I-ORG
 政协 NN I-ORG
 表彰 VV O
@@ -317864,7 +317880,8 @@
 给予 VV O
 充分 JJ O
 肯定 NN O
-。 PU O本 DT O
+。 PU O
+本 DT O
 报 NN O
 讯 NN O
 年末 NT O
@@ -335403,7 +335420,8 @@
 的 DEC O
 小 JJ O
 企业 NN O
-！ PU O金融 NN O
+！ PU O
+金融 NN O
 危机 NN O
 为何 AD O
 像 P O

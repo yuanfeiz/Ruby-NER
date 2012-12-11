@@ -94,7 +94,7 @@ class NLPPipeline < Thor
       path = store_result(str)
       res = pipeline_line(path)
 
-      File.open(options[:out], "a") { |io| io.write(res) }
+      File.open(options[:out], "a") { |io| io.puts(res) }
     end
   end
 

@@ -17,6 +17,8 @@
   $ bundle --without development
   $ lib/pipeline.rb pipeline --in [INPUT_FILE] --output [OUTPUT_FILE] --slice-size [SIZE]
 
+  $ lib/pipeline.rb check_column_size --in [INPUT] # 检查每行feature数量是否一致。
+
   # 查看帮助
   # lib/pipeline.rb
 ```
