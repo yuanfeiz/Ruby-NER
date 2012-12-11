@@ -19,6 +19,16 @@ describe "NLP" do
   let(:indexed_tag) { [["新华社", 14, 3, "ORG"], ["北京", 17, 2, "LOC"], ["罗玉文", 29, 3, "PER"], ["中央军委", 33, 4, "ORG"], ["于永波", 46, 3, "PER"], ["江泽民", 80, 3, "PER"], ["于永波", 150, 3, "PER"], ["徐洪刚", 180, 3, "PER"], ["韩素云", 184, 3, "PER"], ["李国安", 188, 3, "PER"], ["邹延龄", 192, 3, "PER"], ["第四军医大学", 196, 6, "ORG"], ["李尔青", 209, 3, "PER"], ["武警部队国旗护卫队", 214, 9, "ORG"], ["王建华", 225, 3, "PER"], ["于永波", 306, 3, "PER"], ["江主席", 448, 3, "PER"], ["周子玉", 475, 3, "PER"], ["唐天标", 479, 3, "PER"], ["袁守芳", 483, 3, "PER"]] }
   let(:crf_input_refined) { "用 P O\n先进 JJ O\n典型 NN O\n推动 VV O\n部队 NN O\n全面 AD O\n建设 VV O\n据 P O\n新华社 NR B-ORG\n北京 NR B-LOC\n１２月 NT O\n３１日 NT O\n电 NN O\n（ PU O\n记者 NN O\n罗玉文 NR B-PER\n） PU O\n中央 NN B-ORG\n军委 NN I-ORG\n委员 NN O\n、 PU O\n总 JJ O\n政治部 NN O\n主任 NN O\n于永波 NR B-PER\n日前 NT O\n在 P O\n会见 VV O\n全军 NN O\n和 CC O\n武警 NN O\n部队 NN O\n先进 JJ O\n典型 NN O\n代表 NN O\n时 LC O\n强调 VV O\n， PU O\n全 DT O\n军 NN O\n要 VV O\n认真 AD O\n贯彻 VV O\n落实 VV O\n江泽民 NR B-PER\n主席 NN O\n最近 NT O\n的 DEG O\n重要 JJ O\n指示 NN O\n精神 NN O\n， PU O\n形成 VV O\n学习 VV O\n邓小平 NR O\n理论 NN O\n的 DEG O\n新 JJ O\n高潮 NN O\n， PU O\n把 BA O\n这 DT O\n一 CD O\n学习 NN O\n提高 VV O\n到 VV O\n十五 CD O\n大 JJ O\n所 MSP O\n达到 VV O\n的 DEC O\n新 JJ O\n水平 NN O\n， PU O\n进一步 AD O\n加强 VV O\n军队 NN O\n的 DEG O\n革命化 NN O\n、 PU O\n现代化 NN O\n、 PU O\n正规化 JJ O\n建设 NN O\n。 PU O\n于永波 NR B-PER\n等 ETC O\n在 P O\n同 P O\n应邀 VV O\n参加 VV O\n中宣部 NR O\n召开 VV O\n的 DEC O\n全国 JJ O\n先进 JJ O\n典型 NN O\n座谈会 NN O\n的 DEG O\n军队 NN O\n代表 NN O\n徐洪刚 NR B-PER\n、 PU O\n韩素云 NR B-PER\n、 PU O\n李国安 NR B-PER\n、 PU O\n邹延龄 NR B-PER\n、 PU O\n第四 OD B-ORG\n军医 NN I-ORG\n大学 NN I-ORG\n学员 NN O\n二大队 NN O\n代表 NN O\n李尔青 NR B-PER\n以及 CC O\n武警 NN B-ORG\n部队 NN I-ORG\n国旗 NN I-ORG\n护卫队 NN I-ORG\n代表 NN O\n王建华 NR B-PER\n座谈 VV O\n时 LC O\n， PU O\n称赞 VV O\n他们 PN O\n的 DEG O\n先进 JJ O\n事迹 NN O\n是 VC O\n中华 NR O\n民族 NN O\n传统 JJ O\n美德 NN O\n和 CC O\n我 PN O\n党 NN O\n我 PN O\n军 NN O\n优良 VA O\n传统 VA O\n的 DEC O\n完美 NN O\n结合 VV O\n， PU O\n体现 VV O\n了 AS O\n我 PN O\n党 NN O\n我军 NN O\n全心全意 AD O\n为 P O\n人民 NN O\n服务 VV O\n的 DEC O\n宗旨 NN O\n， PU O\n体现 VV O\n了 AS O\n与 P O\n社会主义 NN O\n市场 NN O\n经济 NN O\n相 AD O\n适应 VV O\n的 DEC O\n时代 NN O\n精神 NN O\n。 PU O\n于永波 NR B-PER\n指出 VV O\n， PU O\n我军 NN O\n是 VC O\n一 CD O\n支 M O\n英雄 NN O\n模范 NN O\n辈出 VV O\n的 DEC O\n军队 NN O\n， PU O\n用 P O\n先进 JJ O\n典型 JJ O\n教育 NN O\n部队 NN O\n是 VC O\n我军 NN O\n政治 NN O\n工作 NN O\n的 DEG O\n优良 JJ O\n传统 NN O\n。 PU O\n他 PN O\n说 VV O\n， PU O\n要 VV O\n充分 AD O\n发挥 VV O\n先进 JJ O\n典型 JJ O\n的 DEG O\n示范 NN O\n、 PU O\n激励 VV O\n、 PU O\n感召 NN O\n作用 NN O\n， PU O\n在 P O\n部队 NN O\n营造 VV O\n学习 VV O\n先进 VA O\n、 PU O\n奋发 VV O\n向上 VV O\n的 DEC O\n良好 JJ O\n风气 NN O\n。 PU O\n要 VV O\n把 BA O\n向 P O\n英雄 NN O\n模范 NN O\n学习 VV O\n同 P O\n做好 VV O\n部队 NN O\n的 DEG O\n各 DT O\n项 M O\n工作 NN O\n紧密 AD O\n结合 VV O\n起来 VV O\n， PU O\n爱岗 VV O\n敬业 VV O\n， PU O\n在 P O\n各自 PN O\n的 DEG O\n岗位 NN O\n上 LC O\n为 P O\n军队 NN O\n和 CC O\n国防 NN O\n建设 NN O\n贡献 NN O\n聪明才智 NN O\n， PU O\n按照 P O\n江 NN B-PER\n主席 NN I-PER\n“ PU O\n五 CD O\n句 M O\n话 NN O\n” PU O\n的 DEG O\n总 JJ O\n要求 NN O\n， PU O\n推动 VV O\n部队 NN O\n全面 AD O\n建设 VV O\n。 PU O\n总政 NN O\n副主任 NN O\n周子玉 NR B-PER\n、 PU O\n唐天标 NR B-PER\n、 PU O\n袁守芳 NR B-PER\n等 ETC O\n参加 VV O\n了 AS O\n会见 NN O\n。 PU O" }
 
+  let(:text_contains_quote) { '据{新华社/nt}{华盛顿/ns}１２月３０日电（记者{谷利源/nr}）{美国人口研究所/nt}所长{沃纳?福诺斯/nr}今天在这里指出，尽管近年来一些国家的人口出生率有所下降，但由于许多发展中国家人口不断增长，世界人口增长形势依然严峻。{福诺斯/nr}在该所举行的年度记者招待会上说，由于实施了计划生育和晚婚等措施，加上死亡率增加，世界人口增长速度要比原先预料的低。尽管如此，人口问题对世界经济、环境和社会发展的影响依然十分严重。他预计，到１９９９年中，世界总人口将超过６０亿。目前世界大约８０％的人口居住在发展中国家里，而有７４个发展中国家正面临着在今后３０年里人口翻一番的局面。{钱其琛/nr}访问{德班/ns}本报{德班/ns}１２月３１日电记者{温宪/nr}报道：{中国国务院/nt}副总理兼外长{钱其琛/nr}今天访问了{南非/ns}著名港口城市{德班/ns}。{钱其琛/nr}说，{中国/ns}和{南非/ns}正式建交是给两国人民最好的新年礼物。{德班/ns}所在的{南非/ns}{夸祖鲁?纳塔尔省/ns}省长{恩古巴尼/nr}，{夸?纳省经济及旅游部/nt}部长、新任非国大副主席{祖马/nr}等与{钱其琛/nr}进行了热情友好的会晤。{恩古巴尼/ns}省长回顾了他１９９６年访华时的情景。他说，{中国/ns}的经济发展给他留下了深刻的印象。{夸?纳省/ns}经济很有特点，双方经济发展模式有许多共同点。{中国/ns}与{南非/ns}之间的贸易大部分通过{德班港/ns}，我们有良好的海上和港口设施。我们相信，两国建交以后，双方可以进一步发展经贸合作关系，特别是和{中国/ns}沿海城市之间的合作前景很好。我们也希望同{中国/ns}开拓在农业、科技、贸易、旅游、化工等领域的合作。{恩古巴尼/nr}还说，{南非/ns}资源丰富，我们欢迎{中国/ns}企业到{夸?纳省/ns}投资合作。{钱其琛/nr}说，{夸?纳省/ns}有着悠久的历史，至今仍保留着{祖鲁王国/ns}的传统文化和风俗习惯。良好的气候和独特的自然景观使{夸?纳省/ns}成为著名的旅游地区。贵省地理位置优越，拥有{非洲/ns}第一大港，也是世界十大港口之一的{德班港/ns}。{夸?纳省/ns}经济发展有着巨大潜力。{钱其琛/nr}说，近年来，{中国/ns}的{上海市/ns}与{夸?纳省/ns}开展了多领域的经济合作，先后建立了家电、五金、搪瓷、文具等企业，取得了明显的经济效益。他表示希望在现有基础上推动双方在各个领域的友好合作向前发展。他相信，两国地方省市间的交流与合作也将展现出更为广阔的发展前景。' }
+  let(:text_no_contains_quote) { '据{新华社/nt}{华盛顿/ns}１２月３０日电（记者{谷利源/nr}）{美国人口研究所/nt}所长{沃纳福诺斯/nr}今天在这里指出，尽管近年来一些国家的人口出生率有所下降，但由于许多发展中国家人口不断增长，世界人口增长形势依然严峻。{福诺斯/nr}在该所举行的年度记者招待会上说，由于实施了计划生育和晚婚等措施，加上死亡率增加，世界人口增长速度要比原先预料的低。尽管如此，人口问题对世界经济、环境和社会发展的影响依然十分严重。他预计，到１９９９年中，世界总人口将超过６０亿。目前世界大约８０％的人口居住在发展中国家里，而有７４个发展中国家正面临着在今后３０年里人口翻一番的局面。{钱其琛/nr}访问{德班/ns}本报{德班/ns}１２月３１日电记者{温宪/nr}报道：{中国国务院/nt}副总理兼外长{钱其琛/nr}今天访问了{南非/ns}著名港口城市{德班/ns}。{钱其琛/nr}说，{中国/ns}和{南非/ns}正式建交是给两国人民最好的新年礼物。{德班/ns}所在的{南非/ns}{夸祖鲁纳塔尔省/ns}省长{恩古巴尼/nr}，{夸纳省经济及旅游部/nt}部长、新任非国大副主席{祖马/nr}等与{钱其琛/nr}进行了热情友好的会晤。{恩古巴尼/ns}省长回顾了他１９９６年访华时的情景。他说，{中国/ns}的经济发展给他留下了深刻的印象。{夸纳省/ns}经济很有特点，双方经济发展模式有许多共同点。{中国/ns}与{南非/ns}之间的贸易大部分通过{德班港/ns}，我们有良好的海上和港口设施。我们相信，两国建交以后，双方可以进一步发展经贸合作关系，特别是和{中国/ns}沿海城市之间的合作前景很好。我们也希望同{中国/ns}开拓在农业、科技、贸易、旅游、化工等领域的合作。{恩古巴尼/nr}还说，{南非/ns}资源丰富，我们欢迎{中国/ns}企业到{夸纳省/ns}投资合作。{钱其琛/nr}说，{夸纳省/ns}有着悠久的历史，至今仍保留着{祖鲁王国/ns}的传统文化和风俗习惯。良好的气候和独特的自然景观使{夸纳省/ns}成为著名的旅游地区。贵省地理位置优越，拥有{非洲/ns}第一大港，也是世界十大港口之一的{德班港/ns}。{夸纳省/ns}经济发展有着巨大潜力。{钱其琛/nr}说，近年来，{中国/ns}的{上海市/ns}与{夸纳省/ns}开展了多领域的经济合作，先后建立了家电、五金、搪瓷、文具等企业，取得了明显的经济效益。他表示希望在现有基础上推动双方在各个领域的友好合作向前发展。他相信，两国地方省市间的交流与合作也将展现出更为广阔的发展前景。' }
+
+  let(:wrong_segment_origin_text) { '{谭量顺/nr}家我' }
+  let(:wrong_segment_segmented_text) { '谭量顺家 我' }
+
+  it "根据原文标注截断错误的分词" do
+    app.normalize(app.store_result(wrong_segment_origin_text), keep_bracket: true).should eql(nil)
+  end
+
   it "should convert A#B into 'A B'" do
     str = '
     五#CD
@@ -81,6 +91,7 @@ describe "NLP" do
   end
 
   it "should produces normalize text" do
+    pending
     app.normalize(input_file, keep_bracket: true).should eql(normalized_text)
     app.normalize(input_file, keep_bracket: false).should eql(normalized_text_without_bracket)
   end
@@ -104,6 +115,7 @@ describe "NLP" do
   end
 
   it "should linerize correctly" do
+    pending
     postagged_text_01 = postagged_text
     postagged_text_01.linerize!.should eql(linerized_text)
     postagged_text_01.to_crf_input!.should eql(crf_input)
@@ -114,12 +126,20 @@ describe "NLP" do
   end
 
   it "should index tag of origin input file correctly" do
+    pending
     path = app.store_result(origin_text)
     app.index_tag(path).should eql(indexed_tag)
   end
 
   it "should label text using token index" do
+    pending
     path = app.store_result(crf_input_without_bracket)
     app.label(path, indexed_tag).should eql(crf_input_refined)
+  end
+
+  it "should strip '?' inside {}" do
+    pending
+    path = app.store_result(text_contains_quote)
+    app.strip(path).should eql(text_no_contains_quote)
   end
 end

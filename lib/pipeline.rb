@@ -29,6 +29,11 @@ class NLPPipeline < Thor
     res
   end
 
+  def strip(input_file)
+    str = File.read(input_file)
+    str.gsub(/\{.*?\}/) { |match| match.gsub('?', '') }
+  end
+
   desc 'segment input_file', ''
   def segment(input_file)
     segmenter = File.join(SEGMENTER_DIR, 'segment.sh')
@@ -43,7 +48,7 @@ class NLPPipeline < Thor
     segment_time = Benchmark.realtime do
       res = segment_command.run(params)
     end
-    res.chomp_bracket!
+    res.chomp_bracket!(false)
     res.chomp!
 
     [res, segment_time]
@@ -69,15 +74,28 @@ class NLPPipeline < Thor
 
   desc 'pipeline_line one_line_input_file', ''
   def pipeline_line(input_file)
-    res = normalize(input_file, keep_bracket: false)
+    path = ""
+    res = ""
+    origin_text = strip(input_file)
+
+    res = normalize(store_result(origin_text), keep_bracket: true)
+    # puts '-'*20 + 'normalize' + '-'*20
     path = store_result(res)
+    # p res
     res, segment_time = segment(path)
+    # puts '-'*20 + 'segment' + '-'*20
     path = store_result(res)
     res, postag_time = postag(path)
+    # p res
+    # puts '-'*20 + 'postag' + '-'*20
     res.linerize!.to_crf_input!
     path = store_result(res)
-    index_tbl = index_tag(input_file)
+    index_tbl = index_tag(store_result(origin_text))
+    # p index_tbl
+    # puts '-'*20 + 'index_tag' + '-'*20
     res = label(path, index_tbl)
+    # p res
+    # puts '-'*20 + 'label' + '-'*20
 
     puts res
     puts "segment: #{segment_time}s"
@@ -85,10 +103,13 @@ class NLPPipeline < Thor
   end
 
   desc 'pipeline multi_line_input_file', ''
+  method_options :line => :integer
   def pipeline(input_file)
-    str = File.readlines(input_file).map(&:chomp).join('')
-    path = store_result(str)
-    pipeline_line(path)
+    File.readlines(input_file).each_slice(10) do |lines|
+      str = lines.map(&:chomp).join('')
+      path = store_result(str)
+      pipeline_line(path)
+    end
   end
 
   desc 'label input_file', 'label with IOB'
@@ -101,11 +122,15 @@ class NLPPipeline < Thor
       word = line.split(' ').first
       line_res = ''
       l = ''
-      if (not current_token.nil?) and (current_index < (current_token[1] + current_token[2])) and (current_index >= current_token[1]) then
-        if current_index == current_token[1] then
-          l = 'B-' + current_token.last
+      if (not current_token.nil?) and (current_index < (current_token[1] + current_token[2])) then
+        if (current_index >= current_token[1]) then
+          if current_index == current_token[1] then
+            l = 'B-' + current_token.last
+          else
+            l = 'I-' + current_token.last
+          end
         else
-          l = 'I-' + current_token.last
+          l = 'O'
         end
         current_token = index.shift if current_index + word.length == current_token[1] + current_token[2]
       else
@@ -124,7 +149,7 @@ class NLPPipeline < Thor
     res = []
     str = File.read(input_file)
     offset = 0
-    str.scan(/{(.*?)\/(n[tsr])}/) do |ne, type|
+    str.scan(/{(.*?)\/(n[a-z])}/) do |ne, type|
       res << [ne, $~.offset(0)[0] - offset, ne.length, type.to_cardinal]
       offset += 5
     end
