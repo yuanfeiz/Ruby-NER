@@ -32,7 +32,7 @@ class NLPPipeline < Thor
   desc 'segment input_file', ''
   def segment(input_file)
     segmenter = File.join(SEGMENTER_DIR, 'segment.sh')
-    segment_command = Cocaine::CommandLine.new(segmenter, ':model :filename :encoding :size', swallow_stderr: true)
+    segment_command = Cocaine::CommandLine.new(segmenter, ':model :filename :encoding :size', swallow_stderr: false)
     params = {
       model: 'ctb', # => alter. pku
       filename: input_file,
@@ -52,7 +52,7 @@ class NLPPipeline < Thor
   desc 'postag input_file', ''
   def postag(input_file)
     postagger = File.join(POSTAGGER_DIR, 'stanford-postagger.sh')
-    postag_command = Cocaine::CommandLine.new(postagger, ':model :filename', swallow_stderr: true)
+    postag_command = Cocaine::CommandLine.new(postagger, ':model :filename', swallow_stderr: false)
     params = {
       model: File.join(POSTAGGER_DIR, 'models', 'chinese-distsim.tagger'),
       filename: input_file
@@ -77,17 +77,19 @@ class NLPPipeline < Thor
     path = store_result(res)
     res, postag_time = postag(path)
     res.linerize!.to_crf_input!
-    path = store_result(res)
     index_tbl = index_tag(store_result(origin_text))
+    path = store_result(res)
     res = label(path, index_tbl)
 
     res
   end
 
-  desc 'pipeline --in input --out output', ''
-  method_options :in => :string, :out => :string
+  desc 'pipeline --in input --out output --slice-size size', ''
+  method_options :in => :string, :out => :string, :'slice-size' => 50
   def pipeline
-    File.readlines(options[:in]).each_slice(50) do |lines|
+    i = 0
+    File.readlines(options[:in]).each_slice(options[:'slice-size']) do |lines|
+      p (i += 1)
       str = lines.map(&:chomp).join('')
       path = store_result(str)
       res = pipeline_line(path)
