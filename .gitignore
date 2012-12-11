@@ -2,3 +2,5 @@
 stanford-postagger-full-2012-11-11/*
 !stanford-postagger-full-2012-11-11/stanford-postagger.sh
 stanford-segmenter-2012-11-11/
+
+model/example.mod
