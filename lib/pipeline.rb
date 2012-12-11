@@ -143,6 +143,14 @@ class NLPPipeline < Thor
     res
   end
 
+  desc 'check_column_size --in input_file', ''
+  method_options :in => :string
+  def check_column_size
+    File.readlines(options[:in]).each_with_index do |line, index|
+      puts "#{index}:#{line}" unless line.split(' ').length == 3
+    end
+  end
+
   no_tasks do
 
   def store_result(res)
