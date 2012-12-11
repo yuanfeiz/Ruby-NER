@@ -29,11 +29,6 @@ class NLPPipeline < Thor
     res
   end
 
-  def strip(input_file)
-    str = File.read(input_file)
-    str.gsub(/\{.*?\}/) { |match| match.gsub('?', '') }
-  end
-
   desc 'segment input_file', ''
   def segment(input_file)
     segmenter = File.join(SEGMENTER_DIR, 'segment.sh')
@@ -74,41 +69,30 @@ class NLPPipeline < Thor
 
   desc 'pipeline_line one_line_input_file', ''
   def pipeline_line(input_file)
-    path = ""
-    res = ""
     origin_text = strip(input_file)
 
     res = normalize(store_result(origin_text), keep_bracket: true)
-    # puts '-'*20 + 'normalize' + '-'*20
     path = store_result(res)
-    # p res
     res, segment_time = segment(path)
-    # puts '-'*20 + 'segment' + '-'*20
     path = store_result(res)
     res, postag_time = postag(path)
-    # p res
-    # puts '-'*20 + 'postag' + '-'*20
     res.linerize!.to_crf_input!
     path = store_result(res)
     index_tbl = index_tag(store_result(origin_text))
-    # p index_tbl
-    # puts '-'*20 + 'index_tag' + '-'*20
     res = label(path, index_tbl)
-    # p res
-    # puts '-'*20 + 'label' + '-'*20
 
-    puts res
-    puts "segment: #{segment_time}s"
-    puts "postag: #{postag_time}s"
+    res
   end
 
-  desc 'pipeline multi_line_input_file', ''
-  method_options :line => :integer
-  def pipeline(input_file)
-    File.readlines(input_file).each_slice(10) do |lines|
+  desc 'pipeline --in input --out output', ''
+  method_options :in => :string, :out => :string
+  def pipeline
+    File.readlines(options[:in]).each_slice(50) do |lines|
       str = lines.map(&:chomp).join('')
       path = store_result(str)
-      pipeline_line(path)
+      res = pipeline_line(path)
+
+      File.open(options[:out], "a") { |io| io.write(res) }
     end
   end
 
@@ -157,7 +141,6 @@ class NLPPipeline < Thor
     res
   end
 
-# private
   no_tasks do
 
   def store_result(res)
@@ -166,6 +149,11 @@ class NLPPipeline < Thor
     tmpfile.close
 
     tmpfile.path
+  end
+
+  def strip(input_file)
+    str = File.read(input_file)
+    str.gsub(/\{.*?\}/) { |match| match.gsub('?', '') }
   end
 
   end

@@ -15,7 +15,7 @@
 ```
   $ cd Ruby-NER
   $ bundle --without development
-  $ lib/pipeline.rb pipeline /path/to/input/file
+  $ lib/pipeline.rb pipeline --in [INPUT_FILE] --output [OUTPUT_FILE]
 
   # 查看帮助
   # lib/pipeline.rb
