@@ -175,6 +175,28 @@ class NLPPipeline < Thor
     puts "Substitued #{num} label(s)."
   end
 
+  desc 'extract_prefix_and_surfix --in [INPUT_FILE]', ''
+  method_options :in => :string, :out => :string, :at => 2
+  def extract_prefix_and_surfix
+    buffer = []
+    File.readlines(options[:in]).each do |line|
+      line = line.chomp.split(' ')
+
+      word = line.first
+      line.insert(options[:at], word[-1])
+      line.insert(options[:at], word[0])
+
+      line.join(' ')
+      buffer << line.join(' ')
+    end
+
+    if options[:out] then
+      File.open(options[:out], 'w') { |io| io.puts buffer.join("\n") }
+    else
+      puts buffer.join("\n")
+    end
+  end
+
   no_tasks do
 
   def store_result(res)

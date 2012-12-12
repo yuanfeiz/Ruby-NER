@@ -17,24 +17,11 @@
   $ bundle --without development
   $ lib/pipeline.rb pipeline --in [INPUT_FILE] --output [OUTPUT_FILE] --slice-size [SIZE]
 
-  $ lib/pipeline.rb check_column_size --in [INPUT] # 检查每行feature数量是否一致。
 
-  $ lib/pipeline.rb help sub_label # 替换标签
-  Usage:
-    pipeline.rb sub_label --in [INPUT_FILE] --from [TOKEN] --to [TOKEN]
-
-  Options:
-    [--in=IN]
-    [--out=OUT]    # 如果没有的话，就输出到stdout
-    [--from=FROM]
-                   # Default: BRI
-    [--to=TO]
-                   # Default: O
-
-  ## ~ - ~ ##
-
-  # 查看帮助
-  # lib/pipeline.rb
+  # Utils - 用法参见lib/pipeline.rb help [COMMAND]
+  $ lib/pipeline.rb check_column_size # 检查每行feature数量是否一致。
+  $ lib/pipeline.rb sub_label # 替换标签
+  $ lib/pipeline.rb extract_prefix_and_surfix
 ```
 
 # Note
