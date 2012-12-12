@@ -151,6 +151,30 @@ class NLPPipeline < Thor
     end
   end
 
+  desc 'sub_label --in [INPUT_FILE] --from [TOKEN] --to [TOKEN]', ''
+  method_options :in => :string, :out => :string, :from => 'BRI', :to => 'O'
+  def sub_label
+    num = 0
+    buffer = []
+    File.readlines(options[:in]).each do |line|
+      line = line.chomp.split(' ')
+      begin
+        line[-1] = options[:to]
+        num += 1
+      end if line.last.end_with? options[:from]
+      line.join(' ')
+      buffer << line.join(' ')
+    end
+
+    if options[:out] then
+      File.open(options[:out], 'w') { |io| io.puts buffer.join("\n") }
+    else
+      puts buffer.join("\n")
+    end
+
+    puts "Substitued #{num} label(s)."
+  end
+
   no_tasks do
 
   def store_result(res)
