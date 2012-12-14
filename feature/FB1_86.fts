@@ -1,0 +1,22 @@
+#processed 53274 tokens with 3651 phrases; found: 3402 phrases; correct: 3030.
+#accuracy:  97.76%; precision:  89.07%; recall:  82.99%; FB1:  85.92
+#              BRI: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+#              LOC: precision:  91.22%; recall:  88.01%; FB1:  89.59  1641
+#              ORG: precision:  91.21%; recall:  82.89%; FB1:  86.85  717
+#              PER: precision:  84.20%; recall:  76.10%; FB1:  79.95  1044
+# Unigram
+U02:%x[0,0]
+U06:%x[-1,0]/%x[0,0]/%x[1,0]
+U08:%x[-1,0]/%x[0,0]
+U09:%x[0,0]/%x[1,0]
+
+U11:%x[0,1]
+U12:%x[-1,1]/%x[0,1]
+U13:%x[0,1]/%x[1,1]
+
+U21:%x[0,2]
+U22:%x[0,3]
+U23:%x[0,1]/%x[0,3]
+
+# Bigram
+B

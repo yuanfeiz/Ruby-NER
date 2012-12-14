@@ -4,3 +4,9 @@ stanford-postagger-full-2012-11-11/*
 stanford-segmenter-2012-11-11/
 
 model/example.mod
+
+*.mod
+
+model/FB1_86.mod
+
+model/FB1_86.mod
