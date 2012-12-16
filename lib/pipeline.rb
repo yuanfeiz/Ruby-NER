@@ -197,6 +197,35 @@ class NLPPipeline < Thor
     end
   end
 
+  desc 'label if in gazette', ''
+  method_options :in => :string, :out => :string, :at => -2, :gazette => :string
+  def label_gazette
+    buffer = []
+    gazette = File.read(options[:gazette]).split("\r\n")
+    File.readlines(options[:in]).each do |line|
+      line = line.chomp.split(' ')
+      label = ''
+
+      if gazette.include? line[-3] then
+        label = 'InSurnameList'
+      else
+        label = 'NotInSurnameList'
+      end
+
+      line.insert(options[:at], label)
+
+      buffer << line.join(' ')
+    end
+
+    if options[:out] then
+      File.open(options[:out], 'w') { |io| io.puts buffer.join("\n") }
+    else
+      puts buffer.join("\n")
+    end
+  end
+
+
+
   no_tasks do
 
   def store_result(res)
