@@ -80,6 +80,8 @@ class NLPPipeline < Thor
     index_tbl = index_tag(store_result(origin_text))
     path = store_result(res)
     res = label(path, index_tbl)
+    path = store_result(res)
+    res = extract_prefix_and_surfix(path, nil, 2)
 
     res
   end
@@ -177,24 +179,23 @@ class NLPPipeline < Thor
 
   desc 'extract_prefix_and_surfix --in [INPUT_FILE]', ''
   method_options :in => :string, :out => :string, :at => 2
-  def extract_prefix_and_surfix
+  def extract_prefix_and_surfix(fin = options[:in], fout = options[:out], at = options[:at])
     buffer = []
-    File.readlines(options[:in]).each do |line|
+    File.readlines(fin).each do |line|
       line = line.chomp.split(' ')
 
       word = line.first
-      line.insert(options[:at], word[-1])
-      line.insert(options[:at], word[0])
+      line.insert(at, word[-1])
+      line.insert(at, word[0])
 
       line.join(' ')
       buffer << line.join(' ')
     end
 
-    if options[:out] then
-      File.open(options[:out], 'w') { |io| io.puts buffer.join("\n") }
-    else
-      puts buffer.join("\n")
-    end
+    res = buffer.join("\n")
+    File.open(fout, 'w') { |io| io.puts res } if fout
+
+    res
   end
 
   desc 'label if in gazette', ''
@@ -206,7 +207,7 @@ class NLPPipeline < Thor
       line = line.chomp.split(' ')
       label = ''
 
-      if gazette.include? line[-3] then
+      if (line[0].length > 1) and (line[0].length < 4) and (gazette.include? line[-3]) then
         label = 'InSurnameList'
       else
         label = 'NotInSurnameList'
@@ -224,9 +225,27 @@ class NLPPipeline < Thor
     end
   end
 
+  desc "", ""
+  method_options :in => :string, :out => :string
+  def gazette(fin = options[:in], fout = options[:out])
+    str = linewise_do(fin) do |line_components|
+      ["{#{line_components.first}/nr}"]
+    end
+
+    buffer = str.gsub!("\n", "")
+    res = pipeline_line(store_result(buffer)).gsub!("PER", "InGazatteer-PER")
+    save_to(res, fout)
+
+    res
+  end
+
 
 
   no_tasks do
+
+  def save_to(res, fout)
+    File.open(fout, "w") { |file| file.puts(res) } if fout
+  end
 
   def store_result(res)
     tmpfile = Tempfile.new('result')
@@ -239,6 +258,18 @@ class NLPPipeline < Thor
   def strip(input_file)
     str = File.read(input_file)
     str.gsub(/\{.*?\}/) { |match| match.gsub('?', '') }
+  end
+
+  def linewise_do(fin, &block)
+    buffer = []
+    File.readlines(fin).each do |line|
+      line = line.chomp.split(' ')
+      line = block.call(line)
+      buffer << line.join(' ')
+    end
+
+
+    buffer.join("\n")
   end
 
   end
