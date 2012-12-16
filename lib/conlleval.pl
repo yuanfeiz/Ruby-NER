@@ -29,7 +29,7 @@ my $correct;              # current corpus chunk tag (I,O,B)
 my $correctChunk = 0;     # number of correctly identified chunks
 my $correctTags = 0;      # number of correct chunk tags
 my $correctType;          # type of current corpus chunk tag (NP,VP,etc.)
-my $delimiter = " ";      # field delimiter
+my $delimiter = "	";      # field delimiter
 my $FB1 = 0.0;            # FB1 score (Van Rijsbergen 1979)
 my $firstItem;            # first feature (for sentence boundary checks)
 my $foundCorrect = 0;     # number of chunks in corpus
