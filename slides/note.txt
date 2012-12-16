@@ -1,0 +1,35 @@
+(I will add some additional note if there is something not shown on the slides necessary of explication)
+
+On slide Sequence Labeling:
+Generally speaking, CRF performs better than MEMM while MEMM performs better than HMM.
+However, CRF is quite heavy, hence people may exploit MEMM for those tasks with many types of labels (e.g. POS tagging, about 40 tags) 
+But NER only involves several tags, hence we chose CRF as our model
+
+On slide Tagging Scheme:
+Collobert in his paper said that there are a lot of discussion of different tagging schemes without reaching a consensus on which one is better.
+
+On slide Word Segmentation & POS Tagging:
+Character features are sometimes useful for person name recognition, while word features may be suitable for broader situations.
+Further, in a word-based system, we could still utilize character features as we will discuss later (Prefix/Suffix).
+
+On slide Prefixes & Suffixes:
+(I didn't find a cheap way to insert several Chinese characters without affecting global fonts and settings.
+If you know how to change these XX Shi to XX市, that would be better.
+)
+
+On slide Gazetteers:
+Ratinov and Roth are from UIUC, and (Ratinov and Roth,2009) is a comprehensive survey of NER task.
+
+On slide Word Clustering (Cont.)
+Brown and mkcls are two algorithms for word clustering.
+And mkcls is a reimplementation with some improvement to Brown if I recall correctly.
+(Stanford NER uses Alexander Clark’s distributional similarity code, which claims supporting only ASCII characters.
+Since I don't want to write code to do the tedious code & format conversion,I didn't try this method.)
+
+On slide Experiment Settings:
+(You may explain what the different is between a training set and a dev set.
+It depends on whether most of the audience have clear idea about this two notions.)
+Basically dev set is used to tune parameters, select features and measure performance.
+
+Preliminary Results:
+(Explain what are term-level F1 and character-level F1, a simple example would help greatly)
