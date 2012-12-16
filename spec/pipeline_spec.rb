@@ -26,68 +26,8 @@ describe "NLP" do
   let(:wrong_segment_segmented_text) { '谭量顺家 我' }
 
   it "根据原文标注截断错误的分词" do
+    pending
     app.normalize(app.store_result(wrong_segment_origin_text), keep_bracket: true).should eql(nil)
-  end
-
-  it "should convert A#B into 'A B'" do
-    str = '
-    五#CD
-    句#M
-    话#NN
-    ”#PU
-    的#DEG
-    总#JJ
-    要求#NN
-    ，#PU
-    推动#VV
-    部队#NN
-    全面#AD
-    建设#VV
-    。#PU
-    总政#NN
-    副主任#NN
-    周子玉#NR
-    、#PU
-    唐天标#NR
-    、#PU
-    袁守芳#NR
-    等#ETC
-    参加#VV
-    了#AS
-    会见#NN
-    。#PU
-    '
-
-    str_expected = '
-    五 CD
-    句 M
-    话 NN
-    ” PU
-    的 DEG
-    总 JJ
-    要求 NN
-    ， PU
-    推动 VV
-    部队 NN
-    全面 AD
-    建设 VV
-    。 PU
-    总政 NN
-    副主任 NN
-    周子玉 NR
-    、 PU
-    唐天标 NR
-    、 PU
-    袁守芳 NR
-    等 ETC
-    参加 VV
-    了 AS
-    会见 NN
-    。 PU
-    '
-
-    str.to_crf_input!.should == str_expected
-    str.should == str_expected
   end
 
   it "should produces normalize text" do
@@ -141,5 +81,13 @@ describe "NLP" do
     pending
     path = app.store_result(text_contains_quote)
     app.strip(path).should eql(text_no_contains_quote)
+  end
+
+  it "标注词表内的姓氏" do
+    str_1 = "赖仁琼 NR 赖 琼 B-PER"
+    str_1_answer = "赖仁琼 NR 赖 琼 1 B-PER"
+
+    str_2 = "热气 NN 热 气 O"
+    str_2_answer = "热气 NN 热 气 0 O"
   end
 end
