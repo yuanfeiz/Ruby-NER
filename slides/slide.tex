@@ -210,11 +210,20 @@ As we said before, POS tags can benefit the NER task.
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Sample Training Data}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=0.6\textheight]{./figures/traindata.png}
+		\caption{Sample Training Data}
+		\label{fig:traindata}
+	\end{figure}
+\end{frame}
+
 \subsection{(Preliminary) Results}
 \frame{\frametitle{Preliminary Results}
 We are still keep polishing our models and conducting further experiments, hence the results presented here are not our final version.
 
-Table below shows the F1 score on Dev Set.
+Table below shows the \textbf{Overall} F1 score on Dev Set.
 %Term-level means a term would be counted as correct only if its boundary is precisely extracted.
 \begin{tabular}{|c|c|c|}
 	\hline
@@ -233,6 +242,94 @@ Table below shows the F1 score on Dev Set.
 	+mkcls & Not Ready & Not Ready \\
 	\hline
 \end{tabular}}
+
+\frame{\frametitle{Results on PERSON}
+Table below shows the F1 score of \textbf{PERSON} recognition.
+%Term-level means a term would be counted as correct only if its boundary is precisely extracted.
+\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{Setting} & \textbf{F1(Term-level)} & \textbf{F1(Character-level)} \\
+	\hline
+	Lexical & 42.51 & 41.94 \\
+	\hline
+	+POS & 71.30 & 79.52 \\
+	\hline
+	+Pre/Suffix & 79.95 & 86.44 \\
+	\hline
+	+Surname List &  &  \\
+	\hline
+	+Gazetteer & Not Ready & Not Ready \\
+	\hline
+	+mkcls & Not Ready & Not Ready \\
+	\hline
+\end{tabular}}
+
+\frame{\frametitle{Results on LOCATION}
+Table below shows the F1 score of \textbf{LOCATION} recognition.
+%Term-level means a term would be counted as correct only if its boundary is precisely extracted.
+\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{Setting} & \textbf{F1(Term-level)} & \textbf{F1(Character-level)} \\
+	\hline
+	Lexical & 79.32 & 76.79 \\
+	\hline
+	+POS & 84.52 & 83.61 \\
+	\hline
+	+Pre/Suffix & 89.59 & 89.74 \\
+	\hline
+	+Surname List &  &  \\
+	\hline
+	+Gazetteer & Not Ready & Not Ready \\
+	\hline
+	+mkcls & Not Ready & Not Ready \\
+	\hline
+\end{tabular}}
+
+\frame{\frametitle{Results on ORGANIZATION}
+Table below shows the F1 score of \textbf{ORGANIZATION} recognition.
+%Term-level means a term would be counted as correct only if its boundary is precisely extracted.
+\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{Setting} & \textbf{F1(Term-level)} & \textbf{F1(Character-level)} \\
+	\hline
+	Lexical & 65.90 & 73.19 \\
+	\hline
+	+POS & 78.74 & 82.28 \\
+	\hline
+	+Pre/Suffix & 86.85 & 89.94 \\
+	\hline
+	+Surname List &  &  \\
+	\hline
+	+Gazetteer & Not Ready & Not Ready \\
+	\hline
+	+mkcls & Not Ready & Not Ready \\
+	\hline
+\end{tabular}}
+
+\subsection{Analysis}
+\frame{\frametitle{Analysis \& Insights}
+\begin{enumerate}
+	\item LOCATION is a relatively easier task under our word-based system
+		\pause
+	\item PERSON has the lowest accuracy.
+		\pause
+		\begin{itemize}
+			\item A character based system is more suitable for Chinese person name recognition. \pause
+			\item Pre/Suffix and Gazetteers incurred great improvement in PERSON task. \pause
+		\end{itemize}
+	\item ORGANIZATION has a much better char-level F1 than term-level F1.
+		\pause
+		\begin{itemize}
+			\item It is difficult to precisely judge the boundary of a ORG.
+				\pause
+				\begin{figure}[h]
+					\centering
+					\includegraphics[height=0.2\textheight]{./figures/org.png}
+					\label{fig:discrepancyORG}
+				\end{figure}
+		\end{itemize}
+\end{enumerate}
+}
 
 \begin{frame}{The End}
 	Thank you!	

@@ -55,16 +55,27 @@
 \headcommand {\beamer@framepages {34}{34}}
 \headcommand {\slideentry {3}{1}{2}{35/38}{Experiment Settings}{0}}
 \headcommand {\beamer@framepages {35}{38}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{39}{(Preliminary) Results}}\headcommand {\beamer@subsectionpages {34}{38}}
-\headcommand {\slideentry {3}{2}{1}{39/39}{(Preliminary) Results}{0}}
+\headcommand {\slideentry {3}{1}{3}{39/39}{Experiment Settings}{0}}
 \headcommand {\beamer@framepages {39}{39}}
-\headcommand {\slideentry {3}{2}{2}{40/40}{(Preliminary) Results}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{40}{(Preliminary) Results}}\headcommand {\beamer@subsectionpages {34}{39}}
+\headcommand {\slideentry {3}{2}{1}{40/40}{(Preliminary) Results}{0}}
 \headcommand {\beamer@framepages {40}{40}}
-\headcommand {\sectionentry {4}{\translate {References}}{41}{\translate {References}}{0}}
-\headcommand {\beamer@sectionpages {34}{40}}
-\headcommand {\beamer@subsectionpages {39}{40}}
-\headcommand {\beamer@partpages {1}{42}}
-\headcommand {\beamer@subsectionpages {39}{42}}
-\headcommand {\beamer@sectionpages {34}{42}}
-\headcommand {\beamer@documentpages {42}}
-\headcommand {\def \inserttotalframenumber {23}}
+\headcommand {\slideentry {3}{2}{2}{41/41}{(Preliminary) Results}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\slideentry {3}{2}{3}{42/42}{(Preliminary) Results}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {3}{2}{4}{43/43}{(Preliminary) Results}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{44}{Analysis}}\headcommand {\beamer@subsectionpages {40}{43}}
+\headcommand {\slideentry {3}{3}{1}{44/50}{Analysis}{0}}
+\headcommand {\beamer@framepages {44}{50}}
+\headcommand {\slideentry {3}{3}{2}{51/51}{Analysis}{0}}
+\headcommand {\beamer@framepages {51}{51}}
+\headcommand {\sectionentry {4}{\translate {References}}{52}{\translate {References}}{0}}
+\headcommand {\beamer@sectionpages {34}{51}}
+\headcommand {\beamer@subsectionpages {44}{51}}
+\headcommand {\beamer@partpages {1}{53}}
+\headcommand {\beamer@subsectionpages {44}{53}}
+\headcommand {\beamer@sectionpages {34}{53}}
+\headcommand {\beamer@documentpages {53}}
+\headcommand {\def \inserttotalframenumber {28}}

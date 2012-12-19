@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2012.12.16)  17 DEC 2012 21:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2012.12.16)  19 DEC 2012 21:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1069,7 +1069,7 @@ Overfull \hbox (23.31506pt too wide) has occurred while \output is active
 
 [28
 
-] <./figures/socher-clustering.png, id=1004, 684.5575pt x 182.6825pt>
+] <./figures/socher-clustering.png, id=1010, 684.5575pt x 182.6825pt>
 File: ./figures/socher-clustering.png Graphic file (type png)
 
 <use ./figures/socher-clustering.png>
@@ -1096,7 +1096,7 @@ Overfull \hbox (23.31506pt too wide) has occurred while \output is active
 
 [30
 
-] <./figures/sun-cluster.png, id=1071, 330.23375pt x 139.52126pt>
+] <./figures/sun-cluster.png, id=1077, 330.23375pt x 139.52126pt>
 File: ./figures/sun-cluster.png Graphic file (type png)
 
 <use ./figures/sun-cluster.png>
@@ -1168,33 +1168,152 @@ Overfull \hbox (23.31506pt too wide) has occurred while \output is active
 
 [38
 
-]
+] <./figures/traindata.png, id=1344, 332.24126pt x 290.08376pt>
+File: ./figures/traindata.png Graphic file (type png)
+
+<use ./figures/traindata.png>
+Package pdftex.def Info: ./figures/traindata.png used on input line 220.
+(pdftex.def)             Requested size: 156.3207pt x 136.48453pt.
+
 Overfull \hbox (23.31506pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [39
 
-]
+ <./figures/traindata.png>]
 Overfull \hbox (23.31506pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [40
 
-] (./slide.bbl
+]
 Overfull \hbox (23.31506pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [41
 
+]
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[42
+
+]
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[43
+
+] <./figures/org.png, id=1513, 427.5975pt x 130.4875pt>
+File: ./figures/org.png Graphic file (type png)
+
+<use ./figures/org.png>
+Package pdftex.def Info: ./figures/org.png used on input line 332.
+(pdftex.def)             Requested size: 149.08067pt x 45.49368pt.
+
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[44
+
+ <./figures/org.png>]
+File: ./figures/org.png Graphic file (type png)
+ <use ./figures/org.png>
+Package pdftex.def Info: ./figures/org.png used on input line 332.
+(pdftex.def)             Requested size: 149.08067pt x 45.49368pt.
+
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[45
+
+]
+File: ./figures/org.png Graphic file (type png)
+ <use ./figures/org.png>
+Package pdftex.def Info: ./figures/org.png used on input line 332.
+(pdftex.def)             Requested size: 149.08067pt x 45.49368pt.
+
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[46
+
+]
+File: ./figures/org.png Graphic file (type png)
+ <use ./figures/org.png>
+Package pdftex.def Info: ./figures/org.png used on input line 332.
+(pdftex.def)             Requested size: 149.08067pt x 45.49368pt.
+
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[47
+
+]
+File: ./figures/org.png Graphic file (type png)
+ <use ./figures/org.png>
+Package pdftex.def Info: ./figures/org.png used on input line 332.
+(pdftex.def)             Requested size: 149.08067pt x 45.49368pt.
+
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[48
+
+]
+File: ./figures/org.png Graphic file (type png)
+ <use ./figures/org.png>
+Package pdftex.def Info: ./figures/org.png used on input line 332.
+(pdftex.def)             Requested size: 149.08067pt x 45.49368pt.
+
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[49
+
+]
+File: ./figures/org.png Graphic file (type png)
+ <use ./figures/org.png>
+Package pdftex.def Info: ./figures/org.png used on input line 332.
+(pdftex.def)             Requested size: 149.08067pt x 45.49368pt.
+
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[50
+
+]
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[51
+
+] (./slide.bbl
+Overfull \hbox (23.31506pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[52
+
 ])
 Overfull \hbox (23.31506pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[42]
+[53]
 \tf@nav=\write6
 \openout6 = `slide.nav'.
 
@@ -1204,20 +1323,20 @@ Overfull \hbox (23.31506pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `slide.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 247.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 247.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 344.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 344.
  (./slide.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 247.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 247.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 344.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 344.
 Package rerunfilecheck Info: File `slide.out' has not changed.
-(rerunfilecheck)             Checksum: D8CEEE2833F5230758D014BEDBC23EE5;547.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 247.
+(rerunfilecheck)             Checksum: E1D0398357376B8DC56BA65669687843;606.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 344.
  ) 
 Here is how much of TeX's memory you used:
- 16208 strings out of 493485
- 300759 string characters out of 3143525
- 387082 words of memory out of 3000000
- 19025 multiletter control sequences out of 15000+200000
+ 16322 strings out of 493485
+ 303174 string characters out of 3143525
+ 387247 words of memory out of 3000000
+ 19112 multiletter control sequences out of 15000+200000
  12748 words of font info for 47 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,19n,62p,424b,741s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1227,10 +1346,10 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb>
-Output written on slide.pdf (42 pages, 217852 bytes).
+Output written on slide.pdf (53 pages, 276432 bytes).
 PDF statistics:
- 1502 PDF objects out of 1728 (max. 8388607)
- 1417 compressed objects within 15 object streams
- 97 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1893 PDF objects out of 2073 (max. 8388607)
+ 1791 compressed objects within 18 object streams
+ 122 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 

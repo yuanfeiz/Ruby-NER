@@ -7,4 +7,5 @@
 \beamer@subsectionintoc {2}{2}{Features}{16}{0}{2}
 \beamer@sectionintoc {3}{Experiments}{34}{0}{3}
 \beamer@subsectionintoc {3}{1}{Experiment Settings}{34}{0}{3}
-\beamer@subsectionintoc {3}{2}{(Preliminary) Results}{39}{0}{3}
+\beamer@subsectionintoc {3}{2}{(Preliminary) Results}{40}{0}{3}
+\beamer@subsectionintoc {3}{3}{Analysis}{44}{0}{3}
