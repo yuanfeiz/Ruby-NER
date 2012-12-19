@@ -7,3 +7,4 @@ end
 
 gem 'cocaine'
 gem 'thor'
+gem 'builder'

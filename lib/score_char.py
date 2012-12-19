@@ -36,13 +36,22 @@ for line in res:
         if (gold == guess):
             correct[guess] += len(word)//3
     
-f1 = 0.0
+all_correct = 0
+all_gold = 0
+all_guess = 0
 for key in correct.keys():
     print 'Precision: ', key, correct[key], '/', guessCount[key],'=',correct[key]/guessCount[key]
     print 'Recall: ', key, correct[key], '/', goldCount[key],'=',correct[key]/goldCount[key]
     pre = correct[key]/guessCount[key]
     rec = correct[key]/goldCount[key]
     print 'F1-Score: ', key, 2*pre*rec/(pre+rec)
-    f1 += 2*pre*rec/(pre+rec)
 
-print 'Overall F1-core: ', f1/len(correct.keys())
+    all_correct += correct[key]
+    all_gold += goldCount[key]
+    all_guess += guessCount[key]
+
+print 'Overall Precision: ', all_correct, '/', all_guess,'=',all_correct/all_guess
+print 'Overall Recall: ', all_correct, '/', all_gold,'=',all_correct/all_gold
+pre = all_correct/all_guess
+rec = all_correct/all_gold
+print 'Overall F1-Score: ', 2*pre*rec/(pre+rec)
