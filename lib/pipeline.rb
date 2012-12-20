@@ -42,7 +42,7 @@ class NerPipeline < Thor
     res = nil
 
     inside(SEGMENTER_DIR) do
-      res = run("segment.sh #{params[:model]} #{params[:filename]} #{params[:encoding]} #{params[:size]}", with: "sh", capture: true, swallow_stderr: true)
+      res = run("segment.sh #{params[:model]} #{params[:filename]} #{params[:encoding]} #{params[:size]}", with: "sh", capture: true, swallow_stderr: false)
     end
     res.chomp_bracket!(false)
     res.chomp!
@@ -52,20 +52,18 @@ class NerPipeline < Thor
 
   desc 'postag input_file', ''
   def postag(input_file)
-    postagger = File.join(POSTAGGER_DIR, 'stanford-postagger.sh')
-    postag_command = Cocaine::CommandLine.new(postagger, ':model :filename', swallow_stderr: true)
     params = {
-      model: File.join(POSTAGGER_DIR, 'models', 'chinese-distsim.tagger'),
-      filename: input_file
+      model: File.join('models', 'chinese-distsim.tagger'),
+      filename: File.expand_path(input_file)
     }
 
     res = nil
-    postag_time = Benchmark.realtime do
-      res = postag_command.run(params)
+    inside(POSTAGGER_DIR) do
+      res = run("stanford-postagger.sh #{params[:model]} #{params[:filename]}", with: "sh", capture: true, swallow_stderr: false)
     end
     res.chomp!
 
-    [res, postag_time]
+    res
   end
 
   desc 'pipeline_line one_line_input_file', ''
@@ -73,6 +71,7 @@ class NerPipeline < Thor
     origin_text = strip(input_file)
 
     res = normalize(store_result(origin_text), keep_bracket: true)
+    say_status("Done", "normalize")
     path = store_result(res)
     res, segment_time = segment(path)
     path = store_result(res)
@@ -244,16 +243,15 @@ class NerPipeline < Thor
     res
   end
 
-  desc "test --in INPUT_FILE --out OUTPUT_FILE --model MODEL_FILE", "test file and output the result in xml"
-  method_options :in => :string, :out => :string, :model => :string
-  def test(fin = options[:in], fout = options[:out], model = options[:model])
+  desc "test INPUT_FILE OUTPUT_FILE MODEL_FILE", "test file and output the result in xml"
+  def test(fin, fout, model)
     path = store_result(pipeline(fin, nil, 50, 'EOP'))
-    command = Cocaine::CommandLine.new('crf_test', '-m :model :filename')
     params = {
       model: model,
       filename: path
     }
-    res = command.run(params)
+
+    res = run("crf_test -m #{params[:model]} #{params[:filename]}", capture: true)
     res.extend XmlBuilder
     res = res.to_xml
 

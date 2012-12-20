@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EntityExtraction>
-  <Entities count="190">
+  <Entities count="171">
     <Entity type="ns">
       <Text>湖南</Text>
       <Doc>1</Doc>
@@ -19,22 +19,7 @@
     <Entity type="nr">
       <Text>老李</Text>
       <Doc>1</Doc>
-      <Start>43</Start>
-    </Entity>
-    <Entity type="nr">
-      <Text>老李</Text>
-      <Doc>1</Doc>
       <Start>109</Start>
-    </Entity>
-    <Entity type="nr">
-      <Text>硬邦邦</Text>
-      <Doc>1</Doc>
-      <Start>306</Start>
-    </Entity>
-    <Entity type="nr">
-      <Text>商德</Text>
-      <Doc>1</Doc>
-      <Start>406</Start>
     </Entity>
     <Entity type="nr">
       <Text>于安民</Text>
@@ -96,11 +81,6 @@
       <Doc>2</Doc>
       <Start>119</Start>
     </Entity>
-    <Entity type="nr">
-      <Text>苗</Text>
-      <Doc>2</Doc>
-      <Start>497</Start>
-    </Entity>
     <Entity type="nt">
       <Text>幸福工程组委会</Text>
       <Doc>2</Doc>
@@ -147,7 +127,7 @@
       <Start>174</Start>
     </Entity>
     <Entity type="ns">
-      <Text>内蒙古草原</Text>
+      <Text>内蒙古</Text>
       <Doc>3</Doc>
       <Start>323</Start>
     </Entity>
@@ -156,15 +136,10 @@
       <Doc>3</Doc>
       <Start>350</Start>
     </Entity>
-    <Entity type="ns">
-      <Text>天津</Text>
+    <Entity type="nt">
+      <Text>天津ＳＯＳ儿童黄晓红</Text>
       <Doc>3</Doc>
       <Start>369</Start>
-    </Entity>
-    <Entity type="ns">
-      <Text>ＳＯＳ黄晓红</Text>
-      <Doc>3</Doc>
-      <Start>371</Start>
     </Entity>
     <Entity type="ns">
       <Text>广元市</Text>
@@ -181,18 +156,13 @@
       <Doc>4</Doc>
       <Start>27</Start>
     </Entity>
-    <Entity type="ns">
-      <Text>长安</Text>
-      <Doc>4</Doc>
-      <Start>47</Start>
-    </Entity>
     <Entity type="nr">
       <Text>李</Text>
       <Doc>4</Doc>
       <Start>62</Start>
     </Entity>
     <Entity type="nr">
-      <Text>李</Text>
+      <Text>李将</Text>
       <Doc>4</Doc>
       <Start>101</Start>
     </Entity>
@@ -222,7 +192,7 @@
       <Start>155</Start>
     </Entity>
     <Entity type="nr">
-      <Text>李</Text>
+      <Text>李准备</Text>
       <Doc>4</Doc>
       <Start>167</Start>
     </Entity>
@@ -267,7 +237,7 @@
       <Start>615</Start>
     </Entity>
     <Entity type="ns">
-      <Text>广元市长城宾馆停车场</Text>
+      <Text>广元市长城宾馆</Text>
       <Doc>4</Doc>
       <Start>625</Start>
     </Entity>
@@ -336,11 +306,6 @@
       <Doc>6</Doc>
       <Start>36</Start>
     </Entity>
-    <Entity type="nt">
-      <Text>汉语言文学系</Text>
-      <Doc>6</Doc>
-      <Start>49</Start>
-    </Entity>
     <Entity type="nr">
       <Text>王愿坚</Text>
       <Doc>6</Doc>
@@ -362,7 +327,7 @@
       <Start>893</Start>
     </Entity>
     <Entity type="ns">
-      <Text>广州开发区报施大鑫）建国</Text>
+      <Text>广州</Text>
       <Doc>6</Doc>
       <Start>987</Start>
     </Entity>
@@ -391,20 +356,10 @@
       <Doc>7</Doc>
       <Start>61</Start>
     </Entity>
-    <Entity type="nr">
-      <Text>何长工</Text>
-      <Doc>7</Doc>
-      <Start>65</Start>
-    </Entity>
     <Entity type="nt">
       <Text>地质部党组</Text>
       <Doc>7</Doc>
       <Start>94</Start>
-    </Entity>
-    <Entity type="nt">
-      <Text>中央</Text>
-      <Doc>7</Doc>
-      <Start>121</Start>
     </Entity>
     <Entity type="nr">
       <Text>何长工</Text>
@@ -547,11 +502,6 @@
       <Start>729</Start>
     </Entity>
     <Entity type="ns">
-      <Text>东进</Text>
-      <Doc>7</Doc>
-      <Start>745</Start>
-    </Entity>
-    <Entity type="ns">
       <Text>松辽平原</Text>
       <Doc>7</Doc>
       <Start>747</Start>
@@ -560,11 +510,6 @@
       <Text>松辽平原</Text>
       <Doc>7</Doc>
       <Start>757</Start>
-    </Entity>
-    <Entity type="ns">
-      <Text>公主岭</Text>
-      <Doc>7</Doc>
-      <Start>766</Start>
     </Entity>
     <Entity type="ns">
       <Text>苏联</Text>
@@ -576,11 +521,6 @@
       <Doc>7</Doc>
       <Start>790</Start>
     </Entity>
-    <Entity type="nr">
-      <Text>建设有</Text>
-      <Doc>8</Doc>
-      <Start>606</Start>
-    </Entity>
     <Entity type="ns">
       <Text>中国</Text>
       <Doc>8</Doc>
@@ -590,11 +530,6 @@
       <Text>江泽民</Text>
       <Doc>8</Doc>
       <Start>928</Start>
-    </Entity>
-    <Entity type="nr">
-      <Text>建设有</Text>
-      <Doc>8</Doc>
-      <Start>945</Start>
     </Entity>
     <Entity type="ns">
       <Text>中国</Text>
@@ -691,16 +626,6 @@
       <Doc>9</Doc>
       <Start>227</Start>
     </Entity>
-    <Entity type="nr">
-      <Text>华</Text>
-      <Doc>9</Doc>
-      <Start>233</Start>
-    </Entity>
-    <Entity type="nr">
-      <Text>华</Text>
-      <Doc>9</Doc>
-      <Start>251</Start>
-    </Entity>
     <Entity type="nt">
       <Text>中国全国人大</Text>
       <Doc>9</Doc>
@@ -715,11 +640,6 @@
       <Text>江泽民</Text>
       <Doc>9</Doc>
       <Start>304</Start>
-    </Entity>
-    <Entity type="nr">
-      <Text>伊</Text>
-      <Doc>9</Doc>
-      <Start>314</Start>
     </Entity>
     <Entity type="ns">
       <Text>伊拉克</Text>
@@ -752,11 +672,6 @@
       <Start>434</Start>
     </Entity>
     <Entity type="nr">
-      <Text>伊</Text>
-      <Doc>9</Doc>
-      <Start>441</Start>
-    </Entity>
-    <Entity type="nr">
       <Text>王丙乾</Text>
       <Doc>9</Doc>
       <Start>452</Start>
@@ -785,11 +700,6 @@
       <Text>库巴</Text>
       <Doc>9</Doc>
       <Start>473</Start>
-    </Entity>
-    <Entity type="nr">
-      <Text>附图片</Text>
-      <Doc>10</Doc>
-      <Start>1</Start>
     </Entity>
     <Entity type="ns">
       <Text>北京</Text>
@@ -861,15 +771,10 @@
       <Doc>10</Doc>
       <Start>451</Start>
     </Entity>
-    <Entity type="ns">
-      <Text>四川</Text>
+    <Entity type="nt">
+      <Text>四川华西医科大学附属第一医院</Text>
       <Doc>10</Doc>
       <Start>491</Start>
-    </Entity>
-    <Entity type="nt">
-      <Text>华西医科大学附属第一医院</Text>
-      <Doc>10</Doc>
-      <Start>493</Start>
     </Entity>
     <Entity type="nr">
       <Text>唐胜利</Text>
