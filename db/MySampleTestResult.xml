@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntityExtraction>
+  <Entities count="190">
+    <Entity type="ns">
+      <Text>湖南</Text>
+      <Doc>1</Doc>
+      <Start>0</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>郴州市</Text>
+      <Doc>1</Doc>
+      <Start>2</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>刘洪杰</Text>
+      <Doc>1</Doc>
+      <Start>5</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>老李</Text>
+      <Doc>1</Doc>
+      <Start>43</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>老李</Text>
+      <Doc>1</Doc>
+      <Start>109</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>硬邦邦</Text>
+      <Doc>1</Doc>
+      <Start>306</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>商德</Text>
+      <Doc>1</Doc>
+      <Start>406</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>于安民</Text>
+      <Doc>1</Doc>
+      <Start>441</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>毛泽东</Text>
+      <Doc>1</Doc>
+      <Start>536</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>焦裕禄</Text>
+      <Doc>1</Doc>
+      <Start>577</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>孔繁森</Text>
+      <Doc>1</Doc>
+      <Start>581</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李润五</Text>
+      <Doc>1</Doc>
+      <Start>585</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李国安</Text>
+      <Doc>1</Doc>
+      <Start>589</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>黄继美</Text>
+      <Doc>2</Doc>
+      <Start>4</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>四川</Text>
+      <Doc>2</Doc>
+      <Start>10</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>宣汉县</Text>
+      <Doc>2</Doc>
+      <Start>12</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>落耳坡村</Text>
+      <Doc>2</Doc>
+      <Start>15</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>黄继美</Text>
+      <Doc>2</Doc>
+      <Start>85</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>山西</Text>
+      <Doc>2</Doc>
+      <Start>119</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>苗</Text>
+      <Doc>2</Doc>
+      <Start>497</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>幸福工程组委会</Text>
+      <Doc>2</Doc>
+      <Start>518</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>黄继美</Text>
+      <Doc>2</Doc>
+      <Start>586</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>黄继美</Text>
+      <Doc>2</Doc>
+      <Start>605</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>中国</Text>
+      <Doc>2</Doc>
+      <Start>633</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>刘戈宇</Text>
+      <Doc>2</Doc>
+      <Start>642</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>叶茂</Text>
+      <Doc>3</Doc>
+      <Start>32</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>贵州省</Text>
+      <Doc>3</Doc>
+      <Start>36</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>罗桂英</Text>
+      <Doc>3</Doc>
+      <Start>62</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>罗桂英</Text>
+      <Doc>3</Doc>
+      <Start>174</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>内蒙古草原</Text>
+      <Doc>3</Doc>
+      <Start>323</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>浙江</Text>
+      <Doc>3</Doc>
+      <Start>350</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>天津</Text>
+      <Doc>3</Doc>
+      <Start>369</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>ＳＯＳ黄晓红</Text>
+      <Doc>3</Doc>
+      <Start>371</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>广元市</Text>
+      <Doc>4</Doc>
+      <Start>15</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>朝天区</Text>
+      <Doc>4</Doc>
+      <Start>18</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李建国</Text>
+      <Doc>4</Doc>
+      <Start>27</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>长安</Text>
+      <Doc>4</Doc>
+      <Start>47</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李</Text>
+      <Doc>4</Doc>
+      <Start>62</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李</Text>
+      <Doc>4</Doc>
+      <Start>101</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>广元市长城宾馆</Text>
+      <Doc>4</Doc>
+      <Start>116</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李</Text>
+      <Doc>4</Doc>
+      <Start>124</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李</Text>
+      <Doc>4</Doc>
+      <Start>143</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李</Text>
+      <Doc>4</Doc>
+      <Start>152</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>长城宾馆</Text>
+      <Doc>4</Doc>
+      <Start>155</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李</Text>
+      <Doc>4</Doc>
+      <Start>167</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李遂</Text>
+      <Doc>4</Doc>
+      <Start>215</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>嘉陵派出所</Text>
+      <Doc>4</Doc>
+      <Start>225</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李</Text>
+      <Doc>4</Doc>
+      <Start>241</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李建国</Text>
+      <Doc>4</Doc>
+      <Start>279</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李建国</Text>
+      <Doc>4</Doc>
+      <Start>411</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李</Text>
+      <Doc>4</Doc>
+      <Start>508</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李</Text>
+      <Doc>4</Doc>
+      <Start>555</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李建国</Text>
+      <Doc>4</Doc>
+      <Start>615</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>广元市长城宾馆停车场</Text>
+      <Doc>4</Doc>
+      <Start>625</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>广元市长城宾馆</Text>
+      <Doc>4</Doc>
+      <Start>698</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李建国</Text>
+      <Doc>4</Doc>
+      <Start>723</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>广元市长城宾馆</Text>
+      <Doc>4</Doc>
+      <Start>800</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>广元市市中区人民法院</Text>
+      <Doc>4</Doc>
+      <Start>870</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>广元市长城宾馆</Text>
+      <Doc>4</Doc>
+      <Start>886</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李建国</Text>
+      <Doc>4</Doc>
+      <Start>895</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>薛飞</Text>
+      <Doc>5</Doc>
+      <Start>4</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>内蒙古</Text>
+      <Doc>5</Doc>
+      <Start>84</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>呼和浩特市</Text>
+      <Doc>5</Doc>
+      <Start>87</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>呼和浩特市邮电局</Text>
+      <Doc>5</Doc>
+      <Start>196</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>内蒙古林业大学</Text>
+      <Doc>5</Doc>
+      <Start>381</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>呼和浩特市邮电局</Text>
+      <Doc>5</Doc>
+      <Start>466</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>华南师范大学函授学院</Text>
+      <Doc>6</Doc>
+      <Start>36</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>汉语言文学系</Text>
+      <Doc>6</Doc>
+      <Start>49</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>王愿坚</Text>
+      <Doc>6</Doc>
+      <Start>277</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>广州军区</Text>
+      <Doc>6</Doc>
+      <Start>710</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>西南交通大学出版社</Text>
+      <Doc>6</Doc>
+      <Start>861</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>花城出版社</Text>
+      <Doc>6</Doc>
+      <Start>893</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>广州开发区报施大鑫）建国</Text>
+      <Doc>6</Doc>
+      <Start>987</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>毛泽东</Text>
+      <Doc>7</Doc>
+      <Start>37</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>周恩来</Text>
+      <Doc>7</Doc>
+      <Start>41</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李四光</Text>
+      <Doc>7</Doc>
+      <Start>53</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>何长工</Text>
+      <Doc>7</Doc>
+      <Start>57</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>毛泽东</Text>
+      <Doc>7</Doc>
+      <Start>61</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>何长工</Text>
+      <Doc>7</Doc>
+      <Start>65</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>地质部党组</Text>
+      <Doc>7</Doc>
+      <Start>94</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>中央</Text>
+      <Doc>7</Doc>
+      <Start>121</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>何长工</Text>
+      <Doc>7</Doc>
+      <Start>130</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>中国</Text>
+      <Doc>7</Doc>
+      <Start>334</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>中国</Text>
+      <Doc>7</Doc>
+      <Start>383</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李四光</Text>
+      <Doc>7</Doc>
+      <Start>397</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>国务院</Text>
+      <Doc>7</Doc>
+      <Start>424</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李四光</Text>
+      <Doc>7</Doc>
+      <Start>429</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>地质部</Text>
+      <Doc>7</Doc>
+      <Start>447</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>燃料工业部</Text>
+      <Doc>7</Doc>
+      <Start>451</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>中国科学院</Text>
+      <Doc>7</Doc>
+      <Start>457</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>地质部</Text>
+      <Doc>7</Doc>
+      <Start>471</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>何长工</Text>
+      <Doc>7</Doc>
+      <Start>487</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李四光</Text>
+      <Doc>7</Doc>
+      <Start>498</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>何长工</Text>
+      <Doc>7</Doc>
+      <Start>515</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>地质部</Text>
+      <Doc>7</Doc>
+      <Start>529</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>柴达木盆地</Text>
+      <Doc>7</Doc>
+      <Start>585</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>华北盆地</Text>
+      <Doc>7</Doc>
+      <Start>591</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>四川盆地</Text>
+      <Doc>7</Doc>
+      <Start>596</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>陈云</Text>
+      <Doc>7</Doc>
+      <Start>613</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>地质部</Text>
+      <Doc>7</Doc>
+      <Start>620</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>石油部</Text>
+      <Doc>7</Doc>
+      <Start>624</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>何长工</Text>
+      <Doc>7</Doc>
+      <Start>630</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李人俊</Text>
+      <Doc>7</Doc>
+      <Start>634</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>康世恩</Text>
+      <Doc>7</Doc>
+      <Start>638</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>李四光</Text>
+      <Doc>7</Doc>
+      <Start>645</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>何长工</Text>
+      <Doc>7</Doc>
+      <Start>685</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>地质部党组</Text>
+      <Doc>7</Doc>
+      <Start>690</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>何长工</Text>
+      <Doc>7</Doc>
+      <Start>720</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>地质部</Text>
+      <Doc>7</Doc>
+      <Start>729</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>东进</Text>
+      <Doc>7</Doc>
+      <Start>745</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>松辽平原</Text>
+      <Doc>7</Doc>
+      <Start>747</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>松辽平原</Text>
+      <Doc>7</Doc>
+      <Start>757</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>公主岭</Text>
+      <Doc>7</Doc>
+      <Start>766</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>苏联</Text>
+      <Doc>7</Doc>
+      <Start>780</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>巴库</Text>
+      <Doc>7</Doc>
+      <Start>790</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>建设有</Text>
+      <Doc>8</Doc>
+      <Start>606</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>中国</Text>
+      <Doc>8</Doc>
+      <Start>609</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>江泽民</Text>
+      <Doc>8</Doc>
+      <Start>928</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>建设有</Text>
+      <Doc>8</Doc>
+      <Start>945</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>中国</Text>
+      <Doc>8</Doc>
+      <Start>948</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>联合国</Text>
+      <Doc>9</Doc>
+      <Start>3</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>新华社</Text>
+      <Doc>9</Doc>
+      <Start>30</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>北京</Text>
+      <Doc>9</Doc>
+      <Start>33</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>卢劲</Text>
+      <Doc>9</Doc>
+      <Start>43</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>江泽民</Text>
+      <Doc>9</Doc>
+      <Start>50</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>北京</Text>
+      <Doc>9</Doc>
+      <Start>56</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>哈马迪</Text>
+      <Doc>9</Doc>
+      <Start>64</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>伊拉克国民议会</Text>
+      <Doc>9</Doc>
+      <Start>72</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>江泽民</Text>
+      <Doc>9</Doc>
+      <Start>83</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>中国政府</Text>
+      <Doc>9</Doc>
+      <Start>88</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>伊拉克</Text>
+      <Doc>9</Doc>
+      <Start>96</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>联合国</Text>
+      <Doc>9</Doc>
+      <Start>122</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>江泽民</Text>
+      <Doc>9</Doc>
+      <Start>152</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>伊拉克</Text>
+      <Doc>9</Doc>
+      <Start>159</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>联合国</Text>
+      <Doc>9</Doc>
+      <Start>165</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>伊拉克</Text>
+      <Doc>9</Doc>
+      <Start>209</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>江泽民</Text>
+      <Doc>9</Doc>
+      <Start>221</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>哈马迪</Text>
+      <Doc>9</Doc>
+      <Start>227</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>华</Text>
+      <Doc>9</Doc>
+      <Start>233</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>华</Text>
+      <Doc>9</Doc>
+      <Start>251</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>中国全国人大</Text>
+      <Doc>9</Doc>
+      <Start>261</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>伊拉克国民议会</Text>
+      <Doc>9</Doc>
+      <Start>268</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>江泽民</Text>
+      <Doc>9</Doc>
+      <Start>304</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>伊</Text>
+      <Doc>9</Doc>
+      <Start>314</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>伊拉克</Text>
+      <Doc>9</Doc>
+      <Start>364</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>哈马迪</Text>
+      <Doc>9</Doc>
+      <Start>375</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>中国</Text>
+      <Doc>9</Doc>
+      <Start>380</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>伊拉克</Text>
+      <Doc>9</Doc>
+      <Start>402</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>中国</Text>
+      <Doc>9</Doc>
+      <Start>406</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>哈马迪</Text>
+      <Doc>9</Doc>
+      <Start>434</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>伊</Text>
+      <Doc>9</Doc>
+      <Start>441</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>王丙乾</Text>
+      <Doc>9</Doc>
+      <Start>452</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>曹志</Text>
+      <Doc>9</Doc>
+      <Start>456</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>周觉</Text>
+      <Doc>9</Doc>
+      <Start>459</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>张德广</Text>
+      <Doc>9</Doc>
+      <Start>462</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>伊拉克</Text>
+      <Doc>9</Doc>
+      <Start>466</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>库巴</Text>
+      <Doc>9</Doc>
+      <Start>473</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>附图片</Text>
+      <Doc>10</Doc>
+      <Start>1</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>北京</Text>
+      <Doc>10</Doc>
+      <Start>180</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>白剑峰</Text>
+      <Doc>10</Doc>
+      <Start>189</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>213</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>中国康复研究中心附属北京博爱医院</Text>
+      <Doc>10</Doc>
+      <Start>223</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>250</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>四川</Text>
+      <Doc>10</Doc>
+      <Start>307</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>旺苍县</Text>
+      <Doc>10</Doc>
+      <Start>309</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>白水镇</Text>
+      <Doc>10</Doc>
+      <Start>312</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>322</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>成都市劳务市场</Text>
+      <Doc>10</Doc>
+      <Start>332</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>四川</Text>
+      <Doc>10</Doc>
+      <Start>343</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>眉山县</Text>
+      <Doc>10</Doc>
+      <Start>345</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>423</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>451</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>四川</Text>
+      <Doc>10</Doc>
+      <Start>491</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>华西医科大学附属第一医院</Text>
+      <Doc>10</Doc>
+      <Start>493</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>523</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>中国康复研究中心附属北京博爱医院</Text>
+      <Doc>10</Doc>
+      <Start>571</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>618</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>北京</Text>
+      <Doc>10</Doc>
+      <Start>623</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>北京西站</Text>
+      <Doc>10</Doc>
+      <Start>656</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>662</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>全国妇联</Text>
+      <Doc>10</Doc>
+      <Start>692</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>刘海荣</Text>
+      <Doc>10</Doc>
+      <Start>705</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>715</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>722</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>中国</Text>
+      <Doc>10</Doc>
+      <Start>753</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>胡水元</Text>
+      <Doc>10</Doc>
+      <Start>853</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>唐胜利</Text>
+      <Doc>10</Doc>
+      <Start>871</Start>
+    </Entity>
+    <Entity type="nt">
+      <Text>中国康复研究中心附属北京博爱医院</Text>
+      <Doc>10</Doc>
+      <Start>875</Start>
+    </Entity>
+    <Entity type="ns">
+      <Text>四川</Text>
+      <Doc>10</Doc>
+      <Start>896</Start>
+    </Entity>
+    <Entity type="nr">
+      <Text>方云伟</Text>
+      <Doc>10</Doc>
+      <Start>907</Start>
+    </Entity>
+  </Entities>
+</EntityExtraction>

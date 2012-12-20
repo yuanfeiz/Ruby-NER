@@ -4,13 +4,13 @@ require 'cocaine'
 require 'tempfile'
 require 'benchmark'
 require 'thor'
-require File.expand_path(File.dirname(__FILE__) + '/string_ext')
-require File.expand_path(File.dirname(__FILE__) + '/xml_builder')
+require File.expand_path(File.dirname(__FILE__) + '/lib/string_ext')
+require File.expand_path(File.dirname(__FILE__) + '/lib/xml_builder')
 
-class NLPPipeline < Thor
+class NerPipeline < Thor
 
-  SEGMENTER_DIR = '/Users/stranbird/Documents/NLP/stanford-segmenter-2012-11-11'
-  POSTAGGER_DIR = '/Users/stranbird/Documents/NLP/stanford-postagger-full-2012-11-11'
+  SEGMENTER_DIR = File.expand_path(File.dirname(__FILE__) + '/stanford-segmenter-2012-11-11')
+  POSTAGGER_DIR = File.expand_path(File.dirname(__FILE__) + '/stanford-postagger-full-2012-11-11')
 
   desc 'normalize input_file', 'Normalize file'
   method_options :verbose => :boolean
@@ -33,7 +33,7 @@ class NLPPipeline < Thor
   desc 'segment input_file', ''
   def segment(input_file)
     segmenter = File.join(SEGMENTER_DIR, 'segment.sh')
-    segment_command = Cocaine::CommandLine.new(segmenter, ':model :filename :encoding :size', swallow_stderr: false)
+    segment_command = Cocaine::CommandLine.new(segmenter, ':model :filename :encoding :size', swallow_stderr: true)
     params = {
       model: 'ctb', # => alter. pku
       filename: input_file,
@@ -53,7 +53,7 @@ class NLPPipeline < Thor
   desc 'postag input_file', ''
   def postag(input_file)
     postagger = File.join(POSTAGGER_DIR, 'stanford-postagger.sh')
-    postag_command = Cocaine::CommandLine.new(postagger, ':model :filename', swallow_stderr: false)
+    postag_command = Cocaine::CommandLine.new(postagger, ':model :filename', swallow_stderr: true)
     params = {
       model: File.join(POSTAGGER_DIR, 'models', 'chinese-distsim.tagger'),
       filename: input_file
@@ -244,7 +244,7 @@ class NLPPipeline < Thor
     res
   end
 
-  desc "test file and output the result in xml", ""
+  desc "test --in INPUT_FILE --out OUTPUT_FILE --model MODEL_FILE", "test file and output the result in xml"
   method_options :in => :string, :out => :string, :model => :string
   def test(fin = options[:in], fout = options[:out], model = options[:model])
     path = store_result(pipeline(fin, nil, 50, 'EOP'))
@@ -297,5 +297,3 @@ class NLPPipeline < Thor
 
   end
 end
-
-NLPPipeline.start
