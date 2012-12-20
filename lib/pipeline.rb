@@ -5,6 +5,7 @@ require 'tempfile'
 require 'benchmark'
 require 'thor'
 require File.expand_path(File.dirname(__FILE__) + '/string_ext')
+require File.expand_path(File.dirname(__FILE__) + '/xml_builder')
 
 class NLPPipeline < Thor
 
@@ -87,17 +88,21 @@ class NLPPipeline < Thor
   end
 
   desc 'pipeline --in input --out output --slice-size size', ''
-  method_options :in => :string, :out => :string, :'slice-size' => 50
-  def pipeline
+  method_options :in => :string, :out => :string, :'slice-size' => 50, :s => :string
+  def pipeline(fin = options[:in], fout = options[:out], slice_size = options[:'slice-size'], split_line = options[:s])
+    slice_size ||= 50
     i = 0
-    File.readlines(options[:in]).each_slice(options[:'slice-size']) do |lines|
+    res = nil
+    File.readlines(fin).each_slice(slice_size) do |lines|
       p (i += 1)
-      str = lines.map(&:chomp).join('')
+      str = lines.map(&:chomp).join(split_line)
       path = store_result(str)
       res = pipeline_line(path)
 
-      File.open(options[:out], "a") { |io| io.puts(res) }
+      File.open(fout, "a") { |io| io.puts(res) } if fout
     end
+
+    res
   end
 
   desc 'label input_file', 'label with IOB'
@@ -235,6 +240,24 @@ class NLPPipeline < Thor
     buffer = str.gsub!("\n", "")
     res = pipeline_line(store_result(buffer)).gsub!("PER", "InGazatteer-PER")
     save_to(res, fout)
+
+    res
+  end
+
+  desc "test file and output the result in xml", ""
+  method_options :in => :string, :out => :string, :model => :string
+  def test(fin = options[:in], fout = options[:out], model = options[:model])
+    path = store_result(pipeline(fin, nil, 50, 'EOP'))
+    command = Cocaine::CommandLine.new('crf_test', '-m :model :filename')
+    params = {
+      model: model,
+      filename: path
+    }
+    res = command.run(params)
+    res.extend XmlBuilder
+    res = res.to_xml
+
+    File.open(fout, "w") { |file| file.puts res } if fout
 
     res
   end

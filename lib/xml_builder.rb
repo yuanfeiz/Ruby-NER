@@ -30,12 +30,13 @@ module XmlBuilder
 
     @entities = []
 
-    self.split('EOP').each_with_index do |para, para_index|
+    self.split(/^EOP.*?$/).each_with_index do |para, para_index|
       para.strip.split("\n").inject(0) do |offset, this_line|
         word = this_line.split.first
         tag = this_line.split.last
+
         if tag.start_with? 'B' then
-          @entities.push [tag, para_index, offset, word]
+          @entities.push [output_format(tag), para_index + 1, offset, word]
         elsif tag.start_with? 'I' then
           @entities.last[-1] += word
         end
@@ -45,6 +46,17 @@ module XmlBuilder
     end
 
     @entities
+  end
+
+private
+  def output_format(tag)
+    if tag.end_with? 'PER' then
+      'nr'
+    elsif tag.end_with? 'LOC' then
+      'ns'
+    elsif tag.end_with? 'ORG' then
+      'nt'
+    end
   end
 
 end

@@ -1,0 +1,41 @@
+#Term-wise:
+#processed 17758 tokens with 1215 phrases; found: 1138 phrases; correct: 1018.
+#accuracy:  97.80%; precision:  89.46%; recall:  83.79%; FB1:  86.53
+#              LOC: precision:  90.29%; recall:  88.54%; FB1:  89.40  556
+#              ORG: precision:  91.95%; recall:  82.51%; FB1:  86.97  236
+#              PER: precision:  86.42%; recall:  77.66%; FB1:  81.81  346
+#
+#Character-wise:
+#Precision:  ORG 1248 / 1305 = 0.95632183908
+#Recall:  ORG 1248 / 1484 = 0.840970350404
+#F1-Score:  ORG 0.894944424525
+#Precision:  PER 938 / 1027 = 0.913339824732
+#Recall:  PER 938 / 1138 = 0.824253075571
+#F1-Score:  PER 0.866512702079
+#Precision:  LOC 1277 / 1415 = 0.902473498233
+#Recall:  LOC 1277 / 1439 = 0.887421820709
+#F1-Score:  LOC 0.89488437281
+#Overall Precision:  3463 / 3747 = 0.924206031492
+#Overall Recall:  3463 / 4061 = 0.852745629155
+#Overall F1-Score:  0.887038934426
+
+# Unigram
+U02:%x[0,0]
+U06:%x[-1,0]/%x[0,0]/%x[1,0]
+U08:%x[-1,0]/%x[0,0]
+U09:%x[0,0]/%x[1,0]
+
+U11:%x[0,1]
+U12:%x[-1,1]/%x[0,1]
+U13:%x[0,1]/%x[1,1]
+
+U21:%x[0,2]
+U22:%x[0,3]
+U23:%x[0,1]/%x[0,3]
+
+U33:%x[0,4]/%x[0,3]
+# Bigram
+B
+
+B31:%x[0,4]
+B32:%x[0,1]/%x[0,4]

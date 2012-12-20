@@ -14,26 +14,26 @@
 %\def\citep{\def\citepname##1{##1}\@internalcite}
 %\def\@biblabel#1{\def\citepname##1{##1}[#1]\hfill}}
 
-\title{Chinese Named Entity Recognition using Conditional Random Fields}  
+\title{Chinese Named Entity Recognition using Conditional Random Fields}
 \author{Xilun Chen\inst{1}\inst{2}
-%\footnote{\scriptsize On his visiting at Natural Language Computing Group, Microsoft Research Asia} 
+%\footnote{\scriptsize On his visiting at Natural Language Computing Group, Microsoft Research Asia}
 \and Yuanfei Zhu\inst{1} \and Zeyu Wang\inst{1}}
 \institute{\inst{1}Shanghai Jiao Tong University
 \and \inst{2}On his visiting at Microsoft Research Asia
 }
-\date{\today} 
+\date{\today}
 
-\frame{\titlepage} 
+\frame{\titlepage}
 
-\frame{\frametitle{Table of contents}\tableofcontents} 
+\frame{\frametitle{Table of contents}\tableofcontents}
 
-\section{Introduction} 
+\section{Introduction}
 \frame{\sectionpage}
 
 \subsection{Named Entity Recognition}
 \frame{\subsectionpage}
 
-\frame{\frametitle{Named Entity Recognition} 
+\frame{\frametitle{Named Entity Recognition}
 \begin{itemize}
 	\item NER is a task aimed at extracting named entities from raw text and classifying into their corresponding categories, such as persons, locations, organizations, etc. \pause
 	\item In this task, we are required to identify three entity categories: PER, LOC, ORG given a Chinese text.
@@ -78,7 +78,7 @@ Sequence Labeling has been the state-of-the-art approach to a number of NLP task
 \end{block}
 }
 
-\section{Proposed Approach} 
+\section{Proposed Approach}
 
 \frame{\sectionpage}
 
@@ -92,7 +92,7 @@ Sequence Labeling has been the state-of-the-art approach to a number of NLP task
 	\item We adopt the classic IOB tagging method with totally 7 tags: B-PER, I-PER, B-LOC, I-LOC, B-ORG, I-ORG and Others
 		\pause
 	\item Gain produced by more complex tagging methodologies like IOBES remains elusive.\citep{collobert2011natural}
-\end{itemize} 
+\end{itemize}
 }
 
 \frame{\frametitle{Word Segmentation \& POS Tagging}
@@ -102,14 +102,14 @@ Sequence Labeling has been the state-of-the-art approach to a number of NLP task
 	\begin{itemize}
 		\item In Chinese, words can better encode semantics atomics than characters.
 		\item By word segmentation, additional useful features such as POS tags can be introduced.
-	\end{itemize} 
+	\end{itemize}
 \end{block}
 
 \begin{block}{POS Tagging}
 	\begin{itemize}
 		\item Named Entities are more likely to have particular POS tags (e.g. Proper Nouns).
 		\item POS Tagging can ameliorate the problem of data sparsity.
-	\end{itemize} 
+	\end{itemize}
 \end{block}
 }
 
@@ -119,7 +119,7 @@ Sequence Labeling has been the state-of-the-art approach to a number of NLP task
 
 \frame{\frametitle{Lexical Features}
 \begin{itemize}
-	\item Lexical features are the most basic features that everyone would exploit. 
+	\item Lexical features are the most basic features that everyone would exploit.
 		\pause
 	\item But extravagant utilization of lexical features would result in severe sparsity problem.
 		\pause
@@ -190,7 +190,7 @@ As we said before, POS tags can benefit the NER task.
 	Experiments on Word Clustering are still on-going.
 \end{frame}
 
-\section{Experiments} 
+\section{Experiments}
 \subsection{Experiment Settings}
 \frame{\sectionpage}
 
@@ -210,11 +210,20 @@ As we said before, POS tags can benefit the NER task.
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Sample Training Data}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=0.6\textheight]{./figures/traindata.png}
+		\caption{Sample Training Data}
+		\label{fig:traindata}
+	\end{figure}
+\end{frame}
+
 \subsection{(Preliminary) Results}
 \frame{\frametitle{Preliminary Results}
 We are still keep polishing our models and conducting further experiments, hence the results presented here are not our final version.
 
-Table below shows the F1 score on Dev Set.
+Table below shows the \textbf{Overall} F1 score on Dev Set.
 %Term-level means a term would be counted as correct only if its boundary is precisely extracted.
 \begin{tabular}{|c|c|c|}
 	\hline
@@ -234,8 +243,96 @@ Table below shows the F1 score on Dev Set.
 	\hline
 \end{tabular}}
 
+\frame{\frametitle{Results on PERSON}
+Table below shows the F1 score of \textbf{PERSON} recognition.
+%Term-level means a term would be counted as correct only if its boundary is precisely extracted.
+\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{Setting} & \textbf{F1(Term-level)} & \textbf{F1(Character-level)} \\
+	\hline
+	Lexical & 42.51 & 41.94 \\
+	\hline
+	+POS & 71.30 & 79.52 \\
+	\hline
+	+Pre/Suffix & 79.95 & 86.44 \\
+	\hline
+	+Surname List &  &  \\
+	\hline
+	+Gazetteer & Not Ready & Not Ready \\
+	\hline
+	+mkcls & Not Ready & Not Ready \\
+	\hline
+\end{tabular}}
+
+\frame{\frametitle{Results on LOCATION}
+Table below shows the F1 score of \textbf{LOCATION} recognition.
+%Term-level means a term would be counted as correct only if its boundary is precisely extracted.
+\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{Setting} & \textbf{F1(Term-level)} & \textbf{F1(Character-level)} \\
+	\hline
+	Lexical & 79.32 & 76.79 \\
+	\hline
+	+POS & 84.52 & 83.61 \\
+	\hline
+	+Pre/Suffix & 89.59 & 89.74 \\
+	\hline
+	+Surname List &  &  \\
+	\hline
+	+Gazetteer & Not Ready & Not Ready \\
+	\hline
+	+mkcls & Not Ready & Not Ready \\
+	\hline
+\end{tabular}}
+
+\frame{\frametitle{Results on ORGANIZATION}
+Table below shows the F1 score of \textbf{ORGANIZATION} recognition.
+%Term-level means a term would be counted as correct only if its boundary is precisely extracted.
+\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{Setting} & \textbf{F1(Term-level)} & \textbf{F1(Character-level)} \\
+	\hline
+	Lexical & 65.90 & 73.19 \\
+	\hline
+	+POS & 78.74 & 82.28 \\
+	\hline
+	+Pre/Suffix & 86.85 & 89.94 \\
+	\hline
+	+Surname List &  &  \\
+	\hline
+	+Gazetteer & Not Ready & Not Ready \\
+	\hline
+	+mkcls & Not Ready & Not Ready \\
+	\hline
+\end{tabular}}
+
+\subsection{Analysis}
+\frame{\frametitle{Analysis \& Insights}
+\begin{enumerate}
+	\item LOCATION is a relatively easier task under our word-based system
+		\pause
+	\item PERSON has the lowest accuracy.
+		\pause
+		\begin{itemize}
+			\item A character based system is more suitable for Chinese person name recognition. \pause
+			\item Pre/Suffix and Gazetteers incurred great improvement in PERSON task. \pause
+		\end{itemize}
+	\item ORGANIZATION has a much better char-level F1 than term-level F1.
+		\pause
+		\begin{itemize}
+			\item It is difficult to precisely judge the boundary of a ORG.
+				\pause
+				\begin{figure}[h]
+					\centering
+					\includegraphics[height=0.2\textheight]{./figures/org.png}
+					\label{fig:discrepancyORG}
+				\end{figure}
+		\end{itemize}
+\end{enumerate}
+}
+
 \begin{frame}{The End}
-	Thank you!	
+	Thank you!
 \end{frame}
 
 {
