@@ -8,9 +8,10 @@ require File.expand_path(File.dirname(__FILE__) + '/lib/string_ext')
 require File.expand_path(File.dirname(__FILE__) + '/lib/xml_builder')
 
 class NerPipeline < Thor
+  include Thor::Actions
 
-  SEGMENTER_DIR = File.expand_path(File.dirname(__FILE__) + '/stanford-segmenter-2012-11-11')
-  POSTAGGER_DIR = File.expand_path(File.dirname(__FILE__) + '/stanford-postagger-full-2012-11-11')
+  SEGMENTER_DIR = 'stanford-segmenter-2012-11-11'
+  POSTAGGER_DIR = 'stanford-postagger-full-2012-11-11'
 
   desc 'normalize input_file', 'Normalize file'
   method_options :verbose => :boolean
@@ -32,22 +33,21 @@ class NerPipeline < Thor
 
   desc 'segment input_file', ''
   def segment(input_file)
-    segmenter = File.join(SEGMENTER_DIR, 'segment.sh')
-    segment_command = Cocaine::CommandLine.new(segmenter, ':model :filename :encoding :size', swallow_stderr: true)
     params = {
       model: 'ctb', # => alter. pku
-      filename: input_file,
+      filename: File.expand_path(input_file),
       encoding: 'UTF-8',
       size: '0'
     }
     res = nil
-    segment_time = Benchmark.realtime do
-      res = segment_command.run(params)
+
+    inside(SEGMENTER_DIR) do
+      res = run("segment.sh #{params[:model]} #{params[:filename]} #{params[:encoding]} #{params[:size]}", with: "sh", capture: true, swallow_stderr: true)
     end
     res.chomp_bracket!(false)
     res.chomp!
 
-    [res, segment_time]
+    res
   end
 
   desc 'postag input_file', ''
@@ -198,7 +198,7 @@ class NerPipeline < Thor
     end
 
     res = buffer.join("\n")
-    File.open(fout, 'w') { |io| io.puts res } if fout
+    create_file fout, res if fout
 
     res
   end
@@ -224,7 +224,7 @@ class NerPipeline < Thor
     end
 
     if options[:out] then
-      File.open(options[:out], 'w') { |io| io.puts buffer.join("\n") }
+      create_file fout, buffer.join("\n") if fout
     else
       puts buffer.join("\n")
     end
@@ -257,7 +257,7 @@ class NerPipeline < Thor
     res.extend XmlBuilder
     res = res.to_xml
 
-    File.open(fout, "w") { |file| file.puts res } if fout
+    create_file fout, res if fout
 
     res
   end
@@ -267,7 +267,7 @@ class NerPipeline < Thor
   no_tasks do
 
   def save_to(res, fout)
-    File.open(fout, "w") { |file| file.puts(res) } if fout
+    create_file fout, res if fout
   end
 
   def store_result(res)
