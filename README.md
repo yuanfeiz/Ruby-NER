@@ -15,7 +15,7 @@
 ```
   $ cd Ruby-NER
   $ bundle --without development
-  $ lib/pipeline.rb pipeline --in [INPUT_FILE] --output [OUTPUT_FILE] --slice-size [SIZE]
+  $ lib/pipeline.rb test --in [INPUT_FILE] --output [OUTPUT_FILE] --model [MODEL_FILE]
 
 
   # Utils - 用法参见lib/pipeline.rb help [COMMAND]
