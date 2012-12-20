@@ -13,25 +13,27 @@ class NerPipeline < Thor
   SEGMENTER_DIR = 'stanford-segmenter-2012-11-11'
   POSTAGGER_DIR = 'stanford-postagger-full-2012-11-11'
 
-  desc 'normalize input_file', 'Normalize file'
-  method_options :verbose => :boolean
-  def normalize(input_file, params = {})
+
+  desc '', ''
+  method_options "keep-bracket" => true, "noisy" => true
+  def normalize(input_file = "")
     doc = File.read(input_file)
     capture_tags_regexp = /{(.*?)\/(.*?)}/
 
     res = doc.gsub(capture_tags_regexp) do
-      if params[:keep_bracket] then
+      if options.keep_bracket? then
         '{' + $1 + '}'
       else
         $1
       end
     end
-    puts res if options[:verbose]
+    puts res if options.noisy?
 
     res
   end
 
   desc 'segment input_file', ''
+  method_options "noisy" => true
   def segment(input_file)
     params = {
       model: 'ctb', # => alter. pku
@@ -42,15 +44,18 @@ class NerPipeline < Thor
     res = nil
 
     inside(SEGMENTER_DIR) do
-      res = run("segment.sh #{params[:model]} #{params[:filename]} #{params[:encoding]} #{params[:size]}", with: "sh", capture: true, swallow_stderr: false)
+      res = run("segment.sh #{params[:model]} #{params[:filename]} #{params[:encoding]} #{params[:size]}", with: "sh", capture: true, swallow_stderr: true, verbose: false, verbose: false)
     end
     res.chomp_bracket!(false)
     res.chomp!
+
+    puts res if options.noisy?
 
     res
   end
 
   desc 'postag input_file', ''
+  method_options "noisy" => true
   def postag(input_file)
     params = {
       model: File.join('models', 'chinese-distsim.tagger'),
@@ -59,9 +64,11 @@ class NerPipeline < Thor
 
     res = nil
     inside(POSTAGGER_DIR) do
-      res = run("stanford-postagger.sh #{params[:model]} #{params[:filename]}", with: "sh", capture: true, swallow_stderr: false)
+      res = run("stanford-postagger.sh #{params[:model]} #{params[:filename]}", with: "sh", capture: true, swallow_stderr: true, verbose: false)
     end
     res.chomp!
+
+    puts res if options.noisy?
 
     res
   end
@@ -70,12 +77,11 @@ class NerPipeline < Thor
   def pipeline_line(input_file)
     origin_text = strip(input_file)
 
-    res = normalize(store_result(origin_text), keep_bracket: true)
-    say_status("Done", "normalize")
+    res = thor "ner_pipeline:normalize", store_result(origin_text), capture: true
     path = store_result(res)
-    res, segment_time = segment(path)
+    res = thor "ner_pipeline:segment", path, capture: true
     path = store_result(res)
-    res, postag_time = postag(path)
+    res = thor "ner_pipeline:postag", path, capture: true
     res.linerize!.to_crf_input!
     index_tbl = index_tag(store_result(origin_text))
     path = store_result(res)
