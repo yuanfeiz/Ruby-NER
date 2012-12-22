@@ -1,0 +1,105 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import sys
+import codecs
+from marisa_trie import Trie
+
+reload(sys) 
+sys.setdefaultencoding('utf8')
+
+perfile = open('NE.PER.lex')
+locfile = open('NE.LOC.lex')
+orgfile = open('NE.ORG.lex')
+
+perlines = perfile.readlines()
+pers = map(lambda s: s.split()[0], perlines)
+loclines = locfile.readlines()
+locs = map(lambda s: s.split()[0], loclines)
+orglines = orgfile.readlines()
+orgs = map(lambda s: s.split()[0], orglines)
+
+pers = [s for s in pers if len(s)>6]
+
+per_trie = Trie(pers)
+loc_trie = Trie(locs)
+org_trie = Trie(orgs)
+
+inputfile = open('../db/GazetteResult_1_950.txt')
+f = codecs.open('GazResult_1_950.txt','w','utf-8')
+#inputfile = open('../db/GazetteResult_951_1000.txt')
+#f = codecs.open('GazResult_951_1000.txt','w','utf-8')
+lines = inputfile.readlines()
+lines = map(lambda s: s.strip(), lines)
+words = map(lambda s: s.split()[0], lines)
+
+i = 0
+while i < len(lines):
+    ss = unicode(words[i])
+    j = i
+
+    if ss in org_trie:
+        while ss in org_trie:
+            j += 1
+            if j>=len(words):
+                break
+            ss += words[j]
+        parts = lines[i].split()
+
+        for part in parts[:-1]:
+            print >>f, part.encode('utf-8'),
+        print >> f, 'B-InORGGazetteer', parts[-1].encode('utf-8')
+
+        for k in range(i+1,j):
+            parts = lines[k].split()
+            for part in parts[:-1]:
+                print >>f, part.encode('utf-8'),
+            print >> f, 'I-InORGGazetteer', parts[-1].encode('utf-8')
+        i = j 
+        continue
+
+    if ss in per_trie:
+        while ss in per_trie:
+            j += 1
+            if j>=len(words):
+                break
+            ss += words[j]
+        parts = lines[i].split()
+
+        for part in parts[:-1]:
+            print >>f, part.encode('utf-8'),
+        print >> f, 'B-InPERGazetteer', parts[-1].encode('utf-8')
+
+        for k in range(i+1,j):
+            parts = lines[k].split()
+            for part in parts[:-1]:
+                print >>f, part.encode('utf-8'),
+            print >> f, 'I-InPERGazetteer', parts[-1].encode('utf-8')
+        i = j 
+        continue
+
+    if ss in loc_trie:
+        while ss in loc_trie:
+            j += 1
+            if j>=len(words):
+                break
+            ss += words[j]
+        parts = lines[i].split()
+
+        for part in parts[:-1]:
+            print >>f, part.encode('utf-8'),
+        print >> f, 'B-InLOCGazetteer', parts[-1].encode('utf-8')
+
+        for k in range(i+1,j):
+            parts = lines[k].split()
+            for part in parts[:-1]:
+                print >>f, part.encode('utf-8'),
+            print >> f, 'I-InLOCGazetteer', parts[-1].encode('utf-8')
+        i = j 
+        continue
+
+    parts = lines[i].split()
+    for part in parts[:-1]:
+        print >>f, part.encode('utf-8'),
+    print >> f, 'O', parts[-1].encode('utf-8')
+    i += 1
