@@ -4,3 +4,5 @@ stanford-postagger-full-2012-11-11/*
 stanford-segmenter-2012-11-11/
 
 model/*
+!model/model_8761
+gazetteer/*.lex
