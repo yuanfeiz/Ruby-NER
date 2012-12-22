@@ -213,15 +213,15 @@ As we said before, POS tags can benefit the NER task.
 \begin{frame}{Sample Training Data}
 	\begin{figure}[h]
 		\centering
-		\includegraphics[height=0.6\textheight]{./figures/traindata.png}
+		\includegraphics[width=0.8\textwidth]{./figures/traindata.png}
 		\caption{Sample Training Data}
 		\label{fig:traindata}
 	\end{figure}
 \end{frame}
 
-\subsection{(Preliminary) Results}
-\frame{\frametitle{Preliminary Results}
-We are still keep polishing our models and conducting further experiments, hence the results presented here are not our final version.
+\subsection{Results}
+\frame{\frametitle{Results}
+We are still keep polishing our models and conducting further experiments, hence the results presented here may be not the final version.
 
 Table below shows the \textbf{Overall} F1 score on Dev Set.
 %Term-level means a term would be counted as correct only if its boundary is precisely extracted.
@@ -233,13 +233,11 @@ Table below shows the \textbf{Overall} F1 score on Dev Set.
 	\hline
 	+POS & 79.02 & 81.95 \\
 	\hline
-	+Pre/Suffix & 85.99 & \textbf{88.89} \\
+	+Pre/Suffix & 85.99 & 88.89 \\
 	\hline
-	+Surname List & \textbf{86.53} & 88.70 \\
+	+Surname List & 87.61 & 89.40 \\
 	\hline
-	+Gazetteer & Not Ready & Not Ready \\
-	\hline
-	+mkcls & Not Ready & Not Ready \\
+	+Gazetteer & \textbf{88.52} & \textbf{90.05}\\
 	\hline
 \end{tabular}}
 
@@ -256,11 +254,9 @@ Table below shows the F1 score of \textbf{PERSON} recognition.
 	\hline
 	+Pre/Suffix & 79.95 & 86.44 \\
 	\hline
-	+Surname List &  &  \\
+	+Surname List & 85.01 & 88.06 \\
 	\hline
-	+Gazetteer & Not Ready & Not Ready \\
-	\hline
-	+mkcls & Not Ready & Not Ready \\
+	+Gazetteer & 85.67 & 88.69 \\
 	\hline
 \end{tabular}}
 
@@ -277,11 +273,9 @@ Table below shows the F1 score of \textbf{LOCATION} recognition.
 	\hline
 	+Pre/Suffix & 89.59 & 89.74 \\
 	\hline
-	+Surname List &  &  \\
+	+Surname List & 90.21 & 90.62 \\
 	\hline
-	+Gazetteer & Not Ready & Not Ready \\
-	\hline
-	+mkcls & Not Ready & Not Ready \\
+	+Gazetteer & 91.23 & 91.33 \\
 	\hline
 \end{tabular}}
 
@@ -298,11 +292,9 @@ Table below shows the F1 score of \textbf{ORGANIZATION} recognition.
 	\hline
 	+Pre/Suffix & 86.85 & 89.94 \\
 	\hline
-	+Surname List &  &  \\
+	+Surname List & 85.66 & 89.22 \\
 	\hline
-	+Gazetteer & Not Ready & Not Ready \\
-	\hline
-	+mkcls & Not Ready & Not Ready \\
+	+Gazetteer & 86.57 & 89.78 \\
 	\hline
 \end{tabular}}
 
@@ -315,19 +307,21 @@ Table below shows the F1 score of \textbf{ORGANIZATION} recognition.
 		\pause
 		\begin{itemize}
 			\item A character based system is more suitable for Chinese person name recognition. \pause
-			\item Pre/Suffix and Gazetteers incurred great improvement in PERSON task. \pause
+			\item Pre/Suffix and surname list incurred significant improvement in PERSON task. \pause
 		\end{itemize}
 	\item ORGANIZATION has a much better char-level F1 than term-level F1.
 		\pause
 		\begin{itemize}
 			\item It is difficult to precisely judge the boundary of a ORG.
-				\pause
-				\begin{figure}[h]
-					\centering
-					\includegraphics[height=0.2\textheight]{./figures/org.png}
-					\label{fig:discrepancyORG}
-				\end{figure}
+%				\pause
+%				\begin{figure}[h]
+%					\centering
+%					\includegraphics[height=0.2\textheight]{./figures/org.png}
+%					\label{fig:discrepancyORG}
+%				\end{figure}
 		\end{itemize}
+		\pause
+	\item Gazetteers can bring noticeable improvement on every task despite its mediocre quality.
 \end{enumerate}
 }
 

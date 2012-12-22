@@ -31,9 +31,11 @@ On slide Experiment Settings:
 It depends on whether most of the audience have clear idea about this two notions.)
 Basically dev set is used to tune parameters, select features and measure performance.
 
-Preliminary Results:
+Results:
 (Explain what are term-level F1 and character-level F1, a simple example would help greatly)
 We can see that the POS features are quite helpful, which validate our concern of data sparsity.
 The prefix and suffix features also brought significant improvement.
-The introduction of an additional dictionary of Chinese surnames only results in mild improvement.
-We postulate the reason of not seeing much increase in performance as the same knowledge can be captured to some extent by the prefix features.
+
+On slide Analysis:
+You can analyze anything you notice.
+In a typical paper presentation, this part and the proposed methods part draw most attention and need most articulation.
