@@ -20,15 +20,17 @@ orglines = orgfile.readlines()
 orgs = map(lambda s: s.split()[0], orglines)
 
 pers = [s for s in pers if len(s)>6]
+#locs = [s for s in locs if len(s)>6]
+#orgs = [s for s in orgs if len(s)>6]
 
 per_trie = Trie(pers)
 loc_trie = Trie(locs)
 org_trie = Trie(orgs)
 
-inputfile = open('../db/GazetteResult_1_950.txt')
-f = codecs.open('GazResult_1_950.txt','w','utf-8')
-#inputfile = open('../db/GazetteResult_951_1000.txt')
-#f = codecs.open('GazResult_951_1000.txt','w','utf-8')
+#inputfile = open('../db/GazetteResult_1_950.txt')
+#f = codecs.open('GazResult_1_950.txt','w','utf-8')
+inputfile = open('../db/GazetteResult_951_1000.txt')
+f = codecs.open('GazResult_951_1000.txt','w','utf-8')
 lines = inputfile.readlines()
 lines = map(lambda s: s.strip(), lines)
 words = map(lambda s: s.split()[0], lines)
@@ -78,25 +80,25 @@ while i < len(lines):
         i = j 
         continue
 
-    if ss in loc_trie:
-        while ss in loc_trie:
-            j += 1
-            if j>=len(words):
-                break
-            ss += words[j]
-        parts = lines[i].split()
-
-        for part in parts[:-1]:
-            print >>f, part.encode('utf-8'),
-        print >> f, 'B-InLOCGazetteer', parts[-1].encode('utf-8')
-
-        for k in range(i+1,j):
-            parts = lines[k].split()
-            for part in parts[:-1]:
-                print >>f, part.encode('utf-8'),
-            print >> f, 'I-InLOCGazetteer', parts[-1].encode('utf-8')
-        i = j 
-        continue
+#    if ss in loc_trie:
+#        while ss in loc_trie:
+#            j += 1
+#            if j>=len(words):
+#                break
+#            ss += words[j]
+#        parts = lines[i].split()
+#
+#        for part in parts[:-1]:
+#            print >>f, part.encode('utf-8'),
+#        print >> f, 'B-InLOCGazetteer', parts[-1].encode('utf-8')
+#
+#        for k in range(i+1,j):
+#            parts = lines[k].split()
+#            for part in parts[:-1]:
+#                print >>f, part.encode('utf-8'),
+#            print >> f, 'I-InLOCGazetteer', parts[-1].encode('utf-8')
+#        i = j 
+#        continue
 
     parts = lines[i].split()
     for part in parts[:-1]:
