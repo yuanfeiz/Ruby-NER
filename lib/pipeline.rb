@@ -88,8 +88,26 @@ class NerPipeline < Thor
     res = label(path, index_tbl)
     path = store_result(res)
     res = extract_prefix_and_surfix(path, nil, 2)
+    path = store_result(res)
+    res = thor "ner_pipeline:gaz", path, capture: true
 
     res
+  end
+
+  desc "", ""
+  def gaz(input_file)
+    tmpfile = Tempfile.new('result')
+    params = {
+      input: File.expand_path(input_file),
+      output: tmpfile.path
+    }
+
+    inside 'gazetteer' do
+      run "python gaz.py #{params[:input]} #{params[:output]}", verbose: false
+    end
+
+    puts File.read(params[:output])
+    tmpfile.close
   end
 
   desc 'pipeline --in input --out output --slice-size size', ''

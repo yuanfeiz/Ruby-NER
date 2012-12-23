@@ -1,16 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import os
 import sys
 import codecs
 from marisa_trie import Trie
 
-reload(sys) 
+reload(sys)
 sys.setdefaultencoding('utf8')
 
-perfile = open('NE.PER.lex')
-locfile = open('NE.LOC.lex')
-orgfile = open('NE.ORG.lex')
+perfile = open(os.path.dirname(os.path.realpath(__file__)) + '/NE.PER.lex')
+locfile = open(os.path.dirname(os.path.realpath(__file__)) + '/NE.LOC.lex')
+orgfile = open(os.path.dirname(os.path.realpath(__file__)) + '/NE.ORG.lex')
 
 perlines = perfile.readlines()
 pers = map(lambda s: s.split()[0], perlines)
@@ -29,8 +30,8 @@ org_trie = Trie(orgs)
 
 #inputfile = open('../db/GazetteResult_1_950.txt')
 #f = codecs.open('GazResult_1_950.txt','w','utf-8')
-inputfile = open('../db/GazetteResult_951_1000.txt')
-f = codecs.open('GazResult_951_1000.txt','w','utf-8')
+inputfile = open(sys.argv[1])
+f = codecs.open(sys.argv[2],'w','utf-8')
 lines = inputfile.readlines()
 lines = map(lambda s: s.strip(), lines)
 words = map(lambda s: s.split()[0], lines)
@@ -57,7 +58,7 @@ while i < len(lines):
             for part in parts[:-1]:
                 print >>f, part.encode('utf-8'),
             print >> f, 'I-InORGGazetteer', parts[-1].encode('utf-8')
-        i = j 
+        i = j
         continue
 
     if ss in per_trie:
@@ -77,7 +78,7 @@ while i < len(lines):
             for part in parts[:-1]:
                 print >>f, part.encode('utf-8'),
             print >> f, 'I-InPERGazetteer', parts[-1].encode('utf-8')
-        i = j 
+        i = j
         continue
 
 #    if ss in loc_trie:
@@ -97,7 +98,7 @@ while i < len(lines):
 #            for part in parts[:-1]:
 #                print >>f, part.encode('utf-8'),
 #            print >> f, 'I-InLOCGazetteer', parts[-1].encode('utf-8')
-#        i = j 
+#        i = j
 #        continue
 
     parts = lines[i].split()
