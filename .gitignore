@@ -5,5 +5,5 @@ stanford-segmenter-2012-11-11/
 
 model/*
 !model/model_8761
-!model/model_gaz8864
+!model/model_gaz8884
 gazetteer/*.lex
