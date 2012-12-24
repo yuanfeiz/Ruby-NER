@@ -176,18 +176,16 @@ As we said before, POS tags can benefit the NER task.
 \end{frame}
 
 \begin{frame}{Word Clustering (Cont.)}
-	Weiwei Sun from PKU reported similar gain by using word clustering on POS tagging \citep{sun2012capturing} in her talk at MSRA last week.
-	\begin{figure}[h]
-		\centering
-		\includegraphics[height=0.2\textheight]{./figures/sun-cluster.png}
-		\label{fig:sun-cluster}
-	\end{figure}
+	\begin{itemize}
+		\item 
+			We consider the classic Brown Clustering \citep{brown1992class}, with open source implementation by Percy Liang \citep{liang2005semi}.
+			\pause
+		\item We are also trying the \textbf{mkcls} clustering by Franz Josef Och \citep{och1999efficient}.
+			\pause
+		\item Another promising candidate is a Word Embedding trained by Deep Neural Networks \citep{turian2010word,collobert2011natural}, but we don't have enough time to train and test them.
+	\end{itemize}
 	\pause
-
-	Therefore, we are trying to incorporate the \textbf{mkcls} clustering by Franz Josef Och \citep{och1999efficient}.
-	\pause
-
-	Experiments on Word Clustering are still on-going.
+	Experiments on Word Clustering are still on-going, and so far yield no promising results. (mkcls doesn't work well, and Brown takes too long time to train)
 \end{frame}
 
 \section{Experiments}
@@ -221,8 +219,6 @@ As we said before, POS tags can benefit the NER task.
 
 \subsection{Results}
 \frame{\frametitle{Results}
-We are still keep polishing our models and conducting further experiments, hence the results presented here may be not the final version.
-
 Table below shows the \textbf{Overall} F1 score on Dev Set.
 %Term-level means a term would be counted as correct only if its boundary is precisely extracted.
 \begin{tabular}{|c|c|c|}
@@ -237,7 +233,7 @@ Table below shows the \textbf{Overall} F1 score on Dev Set.
 	\hline
 	+Surname List & 87.61 & 89.40 \\
 	\hline
-	+Gazetteer & \textbf{88.52} & \textbf{90.05}\\
+	+Gazetteer & \textbf{88.84} & \textbf{90.31}\\
 	\hline
 \end{tabular}}
 
@@ -256,7 +252,7 @@ Table below shows the F1 score of \textbf{PERSON} recognition.
 	\hline
 	+Surname List & 85.01 & 88.06 \\
 	\hline
-	+Gazetteer & 85.67 & 88.69 \\
+	+Gazetteer & 86.46 & 89.26 \\
 	\hline
 \end{tabular}}
 
@@ -275,7 +271,7 @@ Table below shows the F1 score of \textbf{LOCATION} recognition.
 	\hline
 	+Surname List & 90.21 & 90.62 \\
 	\hline
-	+Gazetteer & 91.23 & 91.33 \\
+	+Gazetteer & 91.46 & 91.85 \\
 	\hline
 \end{tabular}}
 
@@ -294,7 +290,7 @@ Table below shows the F1 score of \textbf{ORGANIZATION} recognition.
 	\hline
 	+Surname List & 85.66 & 89.22 \\
 	\hline
-	+Gazetteer & 86.57 & 89.78 \\
+	+Gazetteer & 86.51 & 89.59 \\
 	\hline
 \end{tabular}}
 
@@ -303,10 +299,10 @@ Table below shows the F1 score of \textbf{ORGANIZATION} recognition.
 \begin{enumerate}
 	\item LOCATION is a relatively easier task under our word-based system
 		\pause
-	\item PERSON has the lowest accuracy.
+	\item PERSON has a lower accuracy.
 		\pause
 		\begin{itemize}
-			\item A character based system is more suitable for Chinese person name recognition. \pause
+			\item A character based system may be more suitable for Chinese person name recognition. \pause
 			\item Pre/Suffix and surname list incurred significant improvement in PERSON task. \pause
 		\end{itemize}
 	\item ORGANIZATION has a much better char-level F1 than term-level F1.
